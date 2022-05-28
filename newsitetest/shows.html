@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shows | Musicals Stars</title>
+	<link rel="stylesheet" type="text/css" href="css/shows.css">
+	<link rel="stylesheet" type="text/css" href="css/shows700px.css" media='screen and (min-device-width: 0px) and (max-device-width: 980px)'/>
+	<link rel="stylesheet" type="text/css" href="css/shows700px.css" media='screen and (min-width: 0px) and (max-width: 980px)'/>
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body onload="onLoadMovement()">
+
+	<div id="menu">
+		<a href="../index.html"><div id="logo"></div></a>
+		<a href="enrol.php"><div class="aButton" id="lastButton">Enrol</div></a>
+		<a href="teachers.html"><div class="aButton">Team</div></a>
+		<a href="shows.html"><div class="aButton">Shows</div></a>
+		<a href="upcoming.html"><div class="aButton">Upcoming</div></a>
+	</div>
+
+	<div id="container">
+		<div id="lCurtain"></div>
+		<div id="rCurtain"></div>
+
+
+
+		<p id="headText">Our Shows</p>
+		<p id="subheadText">View photos of our shows by clicking on a t-shirt. Scroll, or use the arrows at the edges to navigate.</p>
+		<!--<p id="button">See more</p>-->
+
+		<div id="lButtonSensor" onmouseover="changeIn('l')" onmouseout="changeOut('l')" onmousedown="initiateRight()"></div>
+		<div id="lButton">
+			<div id="lArrow"></div>
+		</div>
+
+		<div id="rButtonSensor" onmouseover="changeIn('r')" onmouseout="changeOut('r')" onmousedown="initiateLeft()"></div>
+		<div id="rButton">
+			<div id="rArrow"></div>
+		</div>
+
+		<div id="bar"></div>
+		<div id="tShirtContainer">
+			<div class="hanger" id="hanger1" style="background-image: url('tshirts/2021-1.png');" onmousedown="boxAppear(0)"></div>
+			<div class="hanger" id="hanger2" style="background-image: url('tshirts/2021-2.png');" onmousedown="boxAppear(1)"></div>
+			<div class="hanger" id="hanger3" style="background-image: url('tshirts/2020.png');" onmousedown="boxAppear(2)"></div>
+			<div class="hanger" id="hanger4" style="background-image: url('tshirts/2019-1.png');" onmousedown="boxAppear(3)"></div>
+			<div class="hanger" id="hanger5" style="background-image: url('tshirts/2019-2.png');" onmousedown="boxAppear(4)"></div>
+			<div class="hanger" id="hanger6" style="background-image: url('tshirts/2018.png');" onmousedown="boxAppear(5)"></div>
+			<div class="hanger" id="hanger7" style="background-image: url('tshirts/2017-1.png');" onmousedown="boxAppear(6)"></div>
+			<div class="hanger" id="hanger8" style="background-image: url('tshirts/2017-2.png');" onmousedown="boxAppear(7)"></div>
+			<div class="hanger" id="hanger9" style="background-image: url('tshirts/2016.png');" onmousedown="boxAppear(8)"></div>
+			<div class="hanger" id="hanger10" style="background-image: url('tshirts/2015.png');" onmousedown="boxAppear(9)"></div>
+			<div class="hanger" id="hanger11" style="background-image: url('tshirts/2014.png');" onmousedown="boxAppear(10)"></div>
+			<div class="hanger" id="hanger12" style="background-image: url('tshirts/2013.png');" onmousedown="boxAppear(11)"></div>
+			<div class="hanger" id="hanger13" style="background-image: url('tshirts/2012.png');" onmousedown="boxAppear(12)"></div>
+			<div class="hanger" id="hanger14" style="background-image: url('tshirts/2011.png');" onmousedown="boxAppear(13)"></div>
+			<div class="hanger" id="hanger15" style="background-image: url('tshirts/2010.png');" onmousedown="boxAppear(14)"></div>
+			<div class="hanger" id="hanger16" style="background-image: url('tshirts/2009-1.png');" onmousedown="boxAppear(15)"></div>
+			<div class="hanger" id="hanger17" style="background-image: url('tshirts/2009-2.png');" onmousedown="boxAppear(16)"></div>
+			<div class="hanger" id="hanger18" style="background-image: url('tshirts/2008.png');" onmousedown="boxAppear(17)"></div>
+			<div class="hanger" id="hanger19" style="background-image: url('tshirts/2007.png');" onmousedown="boxAppear(18)"></div>
+			<div class="hanger" id="hanger20" style="background-image: url('tshirts/2006.png');" onmousedown="boxAppear(19)"></div>
+			<div class="hanger" id="hanger21" style="background-image: url('tshirts/2005.png');" onmousedown="boxAppear(20)"></div>
+			<div class="hanger" id="hanger22" style="background-image: url('tshirts/2004.png');" onmousedown="boxAppear(21)"></div>
+			<div class="hanger" id="hanger23" style="background-image: url('tshirts/2003.png');" onmousedown="boxAppear(22)"></div>
+
+			<div class="hook" id="hook1"></div>
+			<div class="hook" id="hook2"></div>
+			<div class="hook" id="hook3"></div>
+			<div class="hook" id="hook4"></div>
+			<div class="hook" id="hook5"></div>
+			<div class="hook" id="hook6"></div>
+			<div class="hook" id="hook7"></div>
+			<div class="hook" id="hook8"></div>
+			<div class="hook" id="hook9"></div>
+			<div class="hook" id="hook10"></div>
+			<div class="hook" id="hook11"></div>
+			<div class="hook" id="hook12"></div>
+			<div class="hook" id="hook13"></div>
+			<div class="hook" id="hook14"></div>
+			<div class="hook" id="hook15"></div>
+			<div class="hook" id="hook16"></div>
+			<div class="hook" id="hook17"></div>
+			<div class="hook" id="hook18"></div>
+			<div class="hook" id="hook19"></div>
+			<div class="hook" id="hook20"></div>
+			<div class="hook" id="hook21"></div>
+			<div class="hook" id="hook22"></div>
+			<div class="hook" id="hook23"></div>
+		</div>
+
+		<!--Appearing elements-->
+		<div id="appearingGradient"></div>
+		<div id="appearingContainer">
+			<div id="closeTapSensor" onmousedown="boxDisappear()"></div>
+			<div id="closeButton" onmousedown="boxDisappear()"></div>
+			<p id="showTitle"></p>
+			<p id="showContent"></p>
+			<p id="showYear"></p>
+			<button id="showButton" onclick="showImages()">See Photos</button>
+		</div>
+	</div>
+
+	<div id="photoSensor" onmousedown="unshowImages()"></div>
+	<p id="loading">loading...</p>
+	<div id="photo"></div>
+	<div id="photoLButton" class="photoBtn" onmousedown="showPrevImage()"></div>
+	<div id="photoRButton" class="photoBtn" onmousedown="showNextImage()"></div>
+	<div id="photoCloseButton" onmousedown="unshowImages()"></div>
+
+</body>
+<script type="text/javascript">
+	var id = null;  
+	var hangers = 23;
+	var hLeft = [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540];
+	var adj;
+	var speed = 10;
+	var hookOffset = 2;
+	var w;
+	var moving = false;
+
+	function onLoadMovement() {
+		w = window.outerWidth;
+
+		if (w<980) { //For smaller screens
+			adj = 40;
+			speed = 3;
+			hookOffset = 6;
+			hLeft = [100, 135, 170, 205, 240, 275, 310, 345, 380, 415, 450, 485, 520, 555, 590, 625, 660, 695, 730, 765, 800, 835, 870];
+			document.getElementById("subheadText").innerHTML = "View photos of our shows by clicking on a t-shirt. Scroll through the top to navigate.";
+		}
+		else adj = 25;
+
+		//Initial Hanger flyin animation
+		moving = true;
+		for (var i = 6; i < hangers; i++) {
+			hangerLeft(i, 95); //Set the invisible ones
+		}
+		//Fly in the visible on es
+		setTimeout(function(){hangerLeft(0, 95);}, 2500);
+		setTimeout(function(){hangerLeft(1, 95);}, 2900);
+		setTimeout(function(){hangerLeft(2, 95);}, 3300);
+		setTimeout(function(){hangerLeft(3, 95);}, 3500);
+		setTimeout(function(){hangerLeft(4, 95);}, 3900);
+		setTimeout(function(){hangerLeft(5, 95);}, 4300);
+		//Enable scroll on the shirts once intro is over
+		setTimeout(function(){document.getElementById("tShirtContainer").style.overflow = "scroll"; moving = false;}, 5000);
+	}
+
+	function initiateLeft() {
+		if (!moving) {
+			if (w<980) {
+				document.getElementById("rButton").style.animationName = "fadeIn";
+				setTimeout(function(){
+					document.getElementById("rButton").style.animationName = "fadeOut";
+				}, 600);
+			}
+			if (hLeft[hangers-1]<=80) return;
+
+			moving = true;
+			for (var i=0; i<hangers; i++) {
+				if (i==hangers-1) hangerLeft(i, adj, true);
+				else hangerLeft(i, adj, false);
+			}
+		}
+	}
+	function initiateRight() {
+		if (!moving) {
+			if (w<980) {
+				document.getElementById("lButton").style.animationName = "fadeIn";
+				setTimeout(function(){
+					document.getElementById("lButton").style.animationName = "fadeOut";
+				}, 600);
+			}
+			if (hLeft[0]>=0) return;
+
+			moving = true;
+			for (var i=0; i<hangers; i++) {
+				if (i==hangers-1) hangerRight(i, adj, true);
+				else hangerRight(i, adj, false);
+			}
+		}
+	}
+
+	function hangerLeft(i, finish, resetMoving) {
+		var id = null; 
+		var hanger = document.getElementById("hanger"+(i+1)); 
+		var hook = document.getElementById("hook"+(i+1)); 
+		var pos = hLeft[i];
+		clearInterval(id);
+		hanger.style.transform = "rotate(-15deg)";
+		hanger.style.animationName = "nullAni";
+		hook.style.transform = "rotate(-15deg)";
+		hook.style.animationName = "nullAni";
+		id = setInterval(frame, speed);
+			
+		function frame() {
+			if (pos == hLeft[i]-finish) {
+				clearInterval(id);
+				hLeft[i] = pos;
+				hanger.style.animationName = "rockLeft";
+				hook.style.animationName = "rockLeft";
+				if (resetMoving) moving = false;
+			} 
+			else {
+				pos--;
+			    hanger.style.marginLeft = pos + "vw";
+			    hook.style.marginLeft = pos+hookOffset + "vw"; 
+			}
+		}
+	}
+
+	function hangerRight(i, finish, resetMoving) {
+		var id = null; 
+		var hanger = document.getElementById("hanger"+(i+1));
+		var hook = document.getElementById("hook"+(i+1)); 
+		var pos = hLeft[i];
+		clearInterval(id);
+		hanger.style.transform = "rotate(15deg)";
+		hanger.style.animationName = "nullAni";
+		hook.style.transform = "rotate(15deg)";
+		hook.style.animationName = "nullAni";
+		id = setInterval(frame, speed);
+			
+		function frame() {
+			if (pos == hLeft[i]+finish) {
+				clearInterval(id);
+				hLeft[i] = pos;
+				hanger.style.animationName = "rockRight";
+				hook.style.animationName = "rockRight";
+				if (resetMoving) moving = false;
+			} 
+			else {
+				pos++;
+			    hanger.style.marginLeft = pos + "vw"; 
+			    hook.style.marginLeft = pos+hookOffset + "vw"; 
+			}
+		}
+	}
+
+	function changeIn(obj) {
+		if(w>=980) {
+			document.getElementById(obj+"Button").style.animationName = "nullAni";
+			document.getElementById(obj+"Button").style.animationName = "fadeIn";
+		}
+	}
+	function changeOut(obj) {
+		if(w>=980) {
+			document.getElementById(obj+"Button").style.animationName = "nullAni";
+			document.getElementById(obj+"Button").style.animationName = "fadeOut";
+		}
+	}
+
+	function boxAppear(i) {
+		currBox = i;
+		document.getElementById("appearingGradient").style.background = "linear-gradient(to bottom, transparent 0%, "+hGradients[i]+" 100%)";
+		document.getElementById("appearingContainer").style.backgroundColor = hGradients[i];
+		document.getElementById("appearingGradient").style.animationName = "boxAppear";
+		document.getElementById("appearingContainer").style.animationName = "boxAppear";
+
+		document.getElementById("showTitle").innerHTML = hTitles[i];
+		document.getElementById("showYear").innerHTML = hYears[i].substring(0, 4);
+		document.getElementById("showContent").innerHTML = hContent[i];
+		document.getElementById("showButton").style.color = hGradients[i];
+	}
+	function boxDisappear() {
+		document.getElementById("appearingGradient").style.animationName = "nullAni";
+		document.getElementById("appearingContainer").style.animationName = "nullAni";
+		document.getElementById("appearingGradient").style.animationName = "boxDisappear";
+		document.getElementById("appearingContainer").style.animationName = "boxDisappear";
+	}
+
+
+	function showImages() {
+		currImg = 0;
+		document.getElementById("container").style.animationName = "blurMain";
+		document.getElementById("menu").style.opacity = "0.15";
+		document.getElementById("photoSensor").style.display = "block";
+		document.getElementById("photo").style.display = "block";
+		document.getElementById("photoLButton").style.display = "block";
+		document.getElementById("photoRButton").style.display = "block";
+		document.getElementById("photoCloseButton").style.display = "block";
+		document.getElementById("loading").style.display = "block";
+
+		document.getElementById("photo").style.animationName = "photoIn";
+		document.getElementById("photoLButton").style.animationName = "photoIn";
+		document.getElementById("photoRButton").style.animationName = "photoIn";
+		document.getElementById("photoCloseButton").style.animationName = "photoIn";
+		document.getElementById("loading").style.animationName = "photoIn";
+		showNextImage();
+	}
+	function unshowImages() {
+		document.getElementById("container").style.animationName = "unblurMain";
+		document.getElementById("menu").style.opacity = "1";
+		document.getElementById("photoSensor").style.display = "none";
+		document.getElementById("photo").style.display = "none";
+		document.getElementById("photoLButton").style.display = "none";
+		document.getElementById("photoRButton").style.display = "none";
+		document.getElementById("photoCloseButton").style.display = "none";
+		document.getElementById("loading").style.display = "none";
+	}
+	function showNextImage() {
+		if (currImg+1<=dirSizes[currBox]) currImg+=1;
+		document.getElementById("photo").style.backgroundImage = "url('tshirts/tshirtimages/"+hYears[currBox]+"/"+currImg+".webp')";
+	}
+	function showPrevImage() {
+		if (currImg-1>0) currImg-=1;
+		document.getElementById("photo").style.backgroundImage = "url('tshirts/tshirtimages/"+hYears[currBox]+"/"+currImg+".webp')";
+	}
+
+	var currBox;
+	var currImg;
+	var dirSizes = [47, 24, 8, 12, 0, 10, 15, 11, 16, 18, 19, 18, 0, 25, 22, 23, 19, 29, 9, 0, 0, 20, 7];
+
+	var hYears = ["2021-1", "2021-2", "2020", "2019-1", "2019-2", "2018", "2017-1", "2017-2", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009-1", "2009-2", "2008", "2007", "2006", "2005", "2004", "2003"]
+
+	var hGradients = ["#ce0aff", "#21cf02", "red", "#ffaa00", "#2ec72c", "red", "#8521ff", "#ff8921", "#2172ff", "#141414", "#141414", "#00bbff", "#00de0f", "#f700ff", "#f0b800", "#ce0aff", "#141414", "#00cf26", "#ff4800", "#141414", "#00c72e", "#141414", "#f0b800"];
+	var hTitles = ["Joseph", "The Wizard of Oz", "Sseusical", "The Lion King", "The Jungle Book", "Annie", "Peter Pan", "Aristocats", "Pinnochio", "Beauty and the Beast", "Spirit of the Theatre", "Arabian Nights", "Take Care", "Into the Woods", "I've Got a Feeling", "Joseph", "The North Star", "The Wizard of Gree", "ShowTime", "Spirit of the Theatre", "In Harmony", "At The Movies", "Let The Children Sing"];
+	var hContent = [
+	"12 years after Musical Stars first put on this very special show, we brought it back. This musical is very important to everyone at here and every kid who goes through our program has had a taste of it at some point or another. For many of the teachers and older students helpers it was their first ever muscial. Bringing it back allowed us to re-live our love for it, along with it's massive chorus numbers, powerful solos and layered harmonys. So we had to go all all out with a giant, LED sphynx head set piece, and you better believe we took it up a notch with the coat too!",
+	"The Wizard of Oz was our little show for 2021, though this isn't to say that this show was little. It ran for the same length as the big show, and this meant our younger preformers really stepped it up. They learnt more lines, dances and numbers and become more in-depth with their characters than ever before, all to carry this full sized show. Along with the pretty sweet talking Oz head (which is so awesome that it has made an appearnce in other productions of Oz around Wellington since), this was one of our most ambitious little shows ever.",
+	"In 2020, Musical Stars preformed SSeusical. A musical we had been eager to do for quite some time, this show came togather with all the heart pulling and nostalgic energy of the Seuss books. Whats even cooler is that we were able to stage a full show in the pandemic year, which presented challanges in itself, as we used a completely new venue. But the kids pulled through even with only half as much in person rehersal time as normal and created a truly fantastic show. This show provided a great opportunity for large ensemble numbers while also allowing our lead cast to really take the main roles in the way that they wanted to go.",
+	"In 2019, Musical Stars brought to life one of the most beloved, powerful and legendary shows that ever hit broadway. This musical, while comparatively young, has earned its place among classics like Mary Poppins and Phantom of the Opera after only around 20 years on the stage. It is the third longest running musical ever, coming in at over 9,007 performances (that is of course made up of 9,000 from Broadway and 7 from us). This musical is quite a challenge to undertake as it is known best for its fantastic puppets and costumes as well as its timeless ballads.",
+	"Our second show in 2019 was the Jungle Book. As an opperunity for kids of younger ages to be able to become involved in a part, this was the sister show to the Lion King. It truly was a year where there were alot of animal costumes hanging around!",
+	"In 2018 the Musical Stars Cast performed one of the most famous and loved musicals of all time. A ragged orphan named Annie goes in search of a her parents but finds a family on the way. With her fellow orphans and billionaire icon Oliver Warbucks, they take down criminals and dance their way around New York. With fantastic set, detailed costumes, big dance numbers and emotional solos, this show really does take you back to 1940.",
+	"In 2017 the Musical Stars Cast performed the beloved Disney classic, Peter Pan.  Pirates, fairies, sword fights, crocodiles and flying ships all culminate into a majestic musical that will bring nostalgic tears to your eyes.  Big group fight scenes paired with solemn solo numbers are some of the things that have preserved this story for over 100 years and its themes of childhood innocence paired with the realisation that everyone has to grow up will resonate with everyone in the audience. ",
+	"Aristocats was the second show preformed by Musical Stars in 2017.  Based off the 1970 movie, this junior musical is full of fun and adventure and experimentation.  When one of the Aristocats is stolen from their home, the others go on a journey through the rougher parts of town to find them.  This musical teaches both the actors and the audience about diversity and the economic and social differences between groups of people.  Spoiler alert…….. the butler did it!",
+	"In 2017 the Musical Stars Cast performed the beloved Disney classic, Pinnochio.  Pirates, fairies, sword fights, crocodiles and flying ships all culminate into a majestic musical that will bring nostalgic tears to your eyes.  Big group fight scenes paired with solemn solo numbers are some of the things that have preserved this story for over 100 years and its themes of childhood innocence paired with the realisation that everyone has to grow up will resonate with everyone in the audience.",
+	"A tale as old as time...  Musical Stars' production of the Disney's classic, Beauty and the Beast brought to life all our favourite characters.  There was book-worm Belle, the frightening but misunderstood Beast, bubbly Mrs Potts and her adorable Chip, the carefree Lumiere and serious but loyal Cogsworth, and of course the arrogant hunter Gaston determined to marry Belle and kill the Beast.  It also featured a magical all-singing all-dancing chorus line of cutlery in the show stopping number 'Be Our Guest!'",
+	"In 2014 the Musical Stars Cast performed a similar version of our 2007 hit. With lots of new songs but the same enchantment, a group of children with diverse talents find an abandoned theatre. Through team work, intelligence and humour they transform it into a magical place where all dreams can come true. This reprisal included songs from 'Matilda - The Musical', 'Happy' from Pharrell, 'On top of the world' from Imagine Dragons, and many more.",
+	"This magical musical featured a medley of modern songs combined with some lovely classic tunes, all set in the magical Arabian nights environment. With bustling market bazaars, dessert camps, camels, Arabian princesses, flying rocks and cheeky monkeys this was a fun and colourful show.",
+	"This year's show was about environmental concerns in New Zealand and what we can all do to help with conservation.  Held during NZ conservation week, this musical supported the messages from the Department of Conservation,  Wellington Zoo Bush Builders programme, and Zealandia about conserving our environment. Filled with adventure, humour, and songs, 'Take Care – A musical to Conserve', follows a group of children on a journey to identify and understand the environmental issues that threaten New Zealand.",
+	"The Brothers Grimm hit the stage with an epic fairytale about wishes, family and the choices we make. In this story Sondheim and Lapine offer up a cockeyed fairy tale in Into The Woods Jr, an adaptation of one of Sondheim's most popular works designed especially for young performers. All of your favourite characters - Cinderella, Little Red Riding Hood, Jack (and his beanstalk), and the Witch meet and interact in this whimsical original story.",
+	"'The country? I only go to the country on my way to the beach or the mountain!' This story written by one of our own teachers is about Claudia, a city girl, who discovers to her amazement and delight that she has some long lost relatives living in the country – and that she was actually born there. Waving goodbye to friends and family, Claudia embarks on a journey of discovery. She finds life in the country is lots of fun, but she has to face the challenges of fitting in and making new friends. Claudia finds that friendship has no boundaries and different is not better or worse…it's just different! In this journey, Claudia and her country cousin Susan overcome their differences, and find the joy of family, friendship and fun.",
+	"In 2009 our children brought the Old Testament tale of Joseph and his coat of many colours to life. This story gets a splashy, vigorous treatment with music by Andrew Lloyds Webber and lyrics by Tim Rice. Joseph is a handsome young man, his father's favourite child and he has a gift for interpreting dreams. He is also the owner of an amazing technicolour coat. Sold into slavery by his jealous brothers, Joseph ends up in an Egyptian jail. His talents with dreams, brings him to the attention of the Pharaoh, who appoints him to the post of Number Two man in Egypt. Years later, Joseph's brothers arrive to Egypt seeking help. After giving them a bit of a scare, Joseph, benevolently grants them all they desire, reveals his identity, and reunites the family.",
+	"'Stars, much like angels or anything else of celestial importance, are enduring icons to be wished upon, dreamed about, and inspired by'. This was a colourful journey of self-discovery. Young and old where delighted by the many different characters, rabbits, birds, frogs and cats who help guide the children along the way. The North Star raises questions about how we decide which road we take and how to seek out our own unique path through life. The story is about believing in yourself and the bright future ahead. Our young cast of 5 to 8 years olds did a fantastic job in bringing this beautiful story to life.",
+	"This story was about a girl who was different from the rest and her journey to discover her own strengths. In this voyage she finds the importance of friendship and the value of staying true to her beliefs.",
+	"This show was a fantastic medley of songs including 'I've got no strings' - Pinocchio, 'Everybody wants to be a cat' - Aristocats and 'Heigh Ho' from Snow White.",
+	"This magical story took a group of school children into an abandoned theatre. There they discovered 'The Spirit of the Theatre' who was delighted to tell them about all the fabulous shows that had been staged there in the past. The children then decided to unite talents and strengths, clean up the theatre and produce their own show.",
+	"Our cast performed a combination of children's songs from different musicals and movies. All the songs have lovely messages and enhance the idea of living 'In Harmony'. The repertoire included: 'Just imagine' and 'Jungle adventure' - Barney & Friends, 'Welcome' - Brother Bear, 'Take a look through my eyes' and 'You'll be in my heart' - Tarzan, 'Bare necessities' and 'I wanna be like you' - The Jungle Book, 'Colours of the wind' - Pocahontas, 'Fun' - Big, The Musical, Sound of Music, Les Miserable.",
+	"Our children performed a variety of different songs from various movies: Oliver, Aladdin, Toy Story, Mary Poppins, Little Mermaid, Lion King and Snoopy.",
+	"Our very first show was a medley of songs taken from various children's musicals. We performed at Capital E and 'Dance your socks off'."
+	]
+
+</script>
+</html>

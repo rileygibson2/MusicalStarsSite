@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upcoming | Musical Stars</title>
+	<link rel="stylesheet" type="text/css" href="css/upcoming.css">
+	<link rel="stylesheet" type="text/css" href="css/upcoming700px.css" media='screen and (min-device-width: 0px) and (max-device-width: 980px)'/>
+	<link rel="stylesheet" type="text/css" href="css/upcoming700px.css" media='screen and (min-width: 0px) and (max-width: 980px)'/>
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body onload="dateCalculator()">
+
+		<div id="menu">
+			<a href="../index.html"><div id="logo"></div></a>
+			<a href="enrol.php"><div class="aButton" id="lastButton">Enrol</div></a>
+			<a href="teachers.html"><div class="aButton">Team</div></a>
+			<a href="shows.html"><div class="aButton">Shows</div></a>
+			<a href="upcoming.html"><div class="aButton">Upcoming</div></a>
+		</div>
+
+		<div id="correction"></div>
+		<<div id="josephlogo"></div>
+		<div class="dates" id="month"> Months</div>
+		<div class="dates" id="day"> Days</div>
+		<div class="dates" id="hour"> Hours</div>
+		<div class="dates" id="minute"> Minutes</div>
+		<div class="dates" id="second"> Seconds</div>
+	
+</body>
+<script type="text/javascript">
+
+	function dateCalculator() {
+	  	var countDownDate = new Date("Sep 15, 2022 00:00:00").getTime();
+		// Update the count down every 1 second
+		var x = setInterval(function() {
+
+			// Get today's date and time
+			var now = new Date().getTime();
+
+			// Find the distance between now and the count down date
+			var distance = countDownDate - now;
+
+			// Time calculations for days, hours, minutes and seconds
+			var daysFull = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var months = Math.floor(daysFull/30);
+			var days = Math.floor(daysFull%30);
+
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			// Display the result in the element with id="demo"
+			if (months==1) document.getElementById("month").innerHTML = "<strong>"+months+"</strong> Month";
+			else document.getElementById("month").innerHTML = "<strong>"+months+"</strong> Months";
+			if (days==1) document.getElementById("day").innerHTML = "<strong>"+days+"</strong> Day";
+			else document.getElementById("day").innerHTML = "<strong>"+days+"</strong> Days";
+			if (hours==1) document.getElementById("hour").innerHTML = "<strong>"+hours+"</strong> Hour";
+			else document.getElementById("hour").innerHTML = "<strong>"+hours+"</strong> Hours";
+			if (minutes==1) document.getElementById("minute").innerHTML ="<strong>"+minutes+"</strong> Minute";
+			else document.getElementById("minute").innerHTML ="<strong>"+minutes+"</strong> Minutes";
+			if (seconds==1) document.getElementById("second").innerHTML = "<strong>"+seconds+"</strong> Second";
+			else document.getElementById("second").innerHTML = "<strong>"+seconds+"</strong> Seconds";
+
+			// If the count down is finished, write some text 
+			if (distance < 0) {
+				clearInterval(x);
+			}
+		}, 1000);
+	}
+	  
+
+</script>
+</html>

@@ -1,0 +1,174 @@
+* {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+body {
+	background-color: black;
+}
+@font-face {
+  font-family: poppinsLite;
+  src: url('../fonts/Poppins/Poppins-ExtraLight.ttf');
+}
+@font-face {
+  font-family: poppinsReg;
+  src: url('../fonts/Poppins/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: poppinsMed;
+  src: url('../fonts/Poppins/Poppins-Medium.ttf');
+}
+@font-face {
+  font-family: poppinsBold;
+  src: url('../fonts/Poppins/Poppins-Bold.ttf');
+}
+
+#menu {
+	position: absolute;
+	background-color: transparent;
+	width: 100vw;
+	height: 7vh;
+	transition: background-color 0.2s;
+}
+/*#menu:hover {
+	background-color: rgb(150, 150, 150, 0.3);
+}*/
+#logo {
+	position: absolute;
+	width: 32vw;
+	height: 7vh;
+	background-color: transparent;
+	background-image: url("../assets/headerlogowhite.png");
+	background-repeat: no-repeat;
+	background-size: 90%, 100%;
+	background-position: center;
+	filter: none;
+	transition: background-color 0.3s, filter 0.2s;
+}
+#logo:hover {
+	filter: drop-shadow(-2px 2px 10px white);
+}
+.aButton {
+	width: 14vw;
+	height: 7vh;
+	z-index: 600;
+	padding-top: 2.8vh;
+	float: right;
+	font-size: 1.2vh;
+	font-family: poppinsReg;
+	font-weight: bold;
+	text-align: center;
+	color: rgb(230, 230, 230);
+	background-color: transparent;
+	text-shadow: none;
+	transition: text-shadow 0.3s, color 0.3s;
+}
+.aButton:hover {
+	text-shadow: -3px 3px 20px white;
+	color: white;
+}
+#lastButton {
+	color: white;
+	transition: background-color 0.3s, text-shadow 0.3s, color 0.3s;
+}
+#lastButton:hover {
+	background-color: #0092d6;
+	text-shadow: -3px 3px 20px white;
+}
+
+#correction {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	margin-left: 0vw;
+	margin-top: 0vh;
+	background: radial-gradient(rgb(30, 30, 30) 20%, rgb(0, 0, 0) 80%);
+	animation-name: none;
+	z-index: -1;
+}
+.dates {
+	position: relative;
+	width: 100vw;
+	margin-top: 0vh;
+	margin-left: 13vw;
+	text-align: left;
+	color: #0481ba;
+	font-family: poppinsReg;
+	z-index: 500;
+	opacity: 0;
+	background-color: transparent;
+	animation-name: in;
+	animation-fill-mode: forwards;
+	animation-duration: 0.5s;
+	animation-delay: 1s;
+}
+@keyframes in {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+#month {
+	font-size: 20vw;
+	margin-top: 20vh;
+	margin-left: 2vw;
+}
+#day {
+	font-size: 18vw;
+	margin-top: -4vh;
+	margin-left: 2vw;
+}
+#hour {
+	font-size: 14.5vw;
+	margin-top: -3vh;
+	margin-left: 2vw;
+}
+#minute {
+	font-size: 11vw;
+	margin-top: -1vh;
+	margin-left: 2vw;
+}
+#second {
+	font-size: 9vw;
+	margin-top: -1vh;
+	margin-left: 2vw;
+}
+
+#josephlogo {
+	position: absolute;
+	width: 22vw;
+	height: 20vh;
+	margin-top: -50vh;
+	margin-left: -100vw;
+	background-color: transparent;
+	background-image: url("../assets/josephlogo.png");
+	background-repeat: no-repeat;
+	background-size: 100%, 100%;
+	z-index: 600;
+	transform: rotate(0deg);
+	transform-origin: top center;
+	animation-name: swing;
+	animation-fill-mode: forwards;
+	animation-duration: 1.8s;
+	animation-delay: 2s;
+}
+@keyframes swing {
+	0% {margin-top: -50vh; margin-left: -100vw; transform: rotate(30deg);}
+	10% {margin-top: 30vh; margin-left: 77vw;}
+	30% {transform: rotate(45deg);}
+	60% {transform: rotate(-15deg);}
+	80% {transform: rotate(8deg);}
+	88% {transform: rotate(-2deg);}
+	95% {transform: rotate(0deg);}
+	100% {margin-top: 30vh; margin-left: 77vw; transform: rotate(0deg);}
+}
+
+strong {
+	font-family: poppinsBold;
+	color: #47c5ff;
+	text-shadow: 0px 0px 10px #008ccc;
+}
+
+
+
+
+
+

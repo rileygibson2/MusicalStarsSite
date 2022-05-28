@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^upcoming$ /newsitetest/testererererer.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^shows$ /newsitetest/shows.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^teachers$ /newsitetest/teachers.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^enrol$ /newsitetest/enrol.html? [R=301,L]
+
+RewriteRule ^foobar/$ https://www.youtube.com [R]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+</IfModule>
+
+# RewriteRule ^upcoming$ /newsitetest/testererererer [[NC,L]
+# RewriteRule ^shows$ /newsitetest/shows.html [[NC,L]
+# RewriteRule ^teachers$ /newsitetest/teachers.html [[NC,L]
+# RewriteRule ^enrol$ /newsitetest/enrol.html [[NC,L]
+# Options +Multiviews

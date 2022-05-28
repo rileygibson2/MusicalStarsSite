@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teachers | Musical Stars</title>
+	<link rel="stylesheet" type="text/css" href="css/teachers.css">
+	<link rel="stylesheet" type="text/css" href="css/teachers700px.css" media='screen and (min-device-width: 0px) and (max-device-width: 980px)'/>
+	<link rel="stylesheet" type="text/css" href="css/teachers700px.css" media='screen and (min-width: 0px) and (max-width: 980px)'/>
+	<link rel="icon" type="image/png" href="assets/favicongold.png">
+</head>
+<body onload="adaptText()">
+	<!--PRELOAD-->
+	<image src="assets/teacherssat.png" style="display: none;">
+	<image src="assets/jade.png" style="display: none;">
+	<image src="assets/talita.png" style="display: none;">
+	<image src="assets/meg.png" style="display: none;">
+	<image src="assets/jake.png" style="display: none;">
+
+	<div id="menu">
+		<a href="../index.html"><div id="logo"></div></a>
+		<a href="enrol.php"><div class="aButton" id="lastButton">Enrol</div></a>
+		<a href="teachers.html"><div class="aButton">Team</div></a>
+		<a href="shows.html"><div class="aButton">Shows</div></a>
+		<a href="upcoming.html"><div class="aButton">Upcoming</div></a>
+	</div>	
+
+	<div id="container">
+		<div id="header">
+			<div id="teacherLayer"></div>
+			<div class="personLayer" id="pL1"></div>
+			<div class="personLayer" id="pL2"></div>
+
+			<div id="jadeSensor" onmouseover="highlightPerson(0)" onmouseout="losePerson(0)"></div>
+			<div id="talitaSensor" onmouseover="highlightPerson(1)" onmouseout="losePerson(1)"></div>
+			<div id="megSensor" onmouseover="highlightPerson(2)" onmouseout="losePerson(2)"></div>
+			<div id="jakeSensor" onmouseover="highlightPerson(3)" onmouseout="losePerson(3)"></div>
+			<div id="celiaSensor" onmouseover="highlightPerson(4)" onmouseout="losePerson(4)"></div>
+
+			<div id="bubble"></div>
+			<p id="bubbleTitle">Our Team</p>
+			<p id="bubbleSubTitle">All our teachers work in the industry and you will see them pop up on stages all over Wellington. Hover over a person to learn more about our teaching dream team!</p>
+			
+			<p class="bubbleName" id="bN1"></p>
+			<p class="bubbleName" id="bN2"></p>
+			<p class="bubbleBlurb" id="bB1"></p>
+			<p class="bubbleBlurb" id="bB2"></p>
+		</div>
+
+
+	</div>
+</body>
+<script type="text/javascript">
+	var peopleImgs = ['jade.png', 'talita.png', 'meg.png', 'jake.png', 'celia.png'];
+	var people = ['Jade', 'Talita', 'Meg', 'Jake', 'Celia'];
+	var active = 1;
+	var w = window.innerWidth;
+	var peopleText = [
+	"Jade is excited to be the new singing teacher at Musical Stars for 2021. Music is a universal language that can reach every living being on this earth and singing opens a channel for healing, connection, and confidence in the purest form. Jade is in middle year of working towards a Bachelor of Applied Arts Performing Arts at Te Auaha.</br></br>She believes that confidence and self-worth is at the forefront of importance. Jade is passionate in allowing a creative space to for everyone to flourish. Can't wait for what this year has in store for all of us!!", 
+	"Talita Archibald is an experienced childhood educator with over 22 years teaching performance and drama to school aged children. Talita trained in Music Therapy at the University of Buenos Aires, Argentina and at Colorado State University, USA. Originally from Buenos Aires, Argentina, she met her Kiwi soulmate while travelling in Scotland and in 2004 moved to Wellington. Now she lives with her husband, two young children and her beloved dog.</br></br>She brings the flamboyance and enthusiasm for music, dance and drama from her home in Argentina. She is passionate about developing the best of each child through singing, acting or dancing.", 
+	"Meg has been dancing since the age of 2 and has been trained in a range of styles from Jazz, Tap, Lyrical and even Hip Hop, from this Meg has gone onto compete in solos and troupes, perform at disneyland, choreograph musicals such as Hairspray, Shrek the musical and The Sound of Music.</br></br>Meg is currently in her second year at Te Auaha studying Musical Theatre and she is super excited to start dancing with all of you at Musical Stars! ",
+	"Jake Elston has been in acting classes for as long as he can remember. He discovered his passion for musical theatre five years ago when he did his first show (High School Musical in 2015) and he hasn't looked back since! </br><br>Jake has performed in a number of shows around Wellington, including Shrek the Musical in 2019. He has just completed his three year Bachelor in Applied Arts (Musical Theatre) at Te Auaha Institute of Creativity and is super excited to be taking on this new chapter in his career in the arts.",
+	"Celia Macdonald is a Professional Actress, Singer, Dancer, and a recent Graduate from the National Academy of Singing and Dramatic Art (NASDA) in Christchurch where she won ‘The Most Likely to have a Professional Career Special Award’. Celia found her first interest in Music Theatre at Musical Stars Performance Trust at age six. She spent five years with Musical Stars. Celia has also worked closely with Broadway stars, Andréa Burns, Julia Murney, Joshua Henry, and NZ’s Hayden Tee. She also trained in Stage and Screen with renowned Acting coach, Miranda Harcourt."];
+	
+	function adaptText() {
+		if (w<990) {  
+			peopleText = [
+	"Jade is excited to be the new singing teacher at Musical Stars. Music is a universal language that can open a channel for connection and confidence in the purest form. Jade is in middle year of working towards a Bachelor of Applied Arts Performing Arts at Te Auaha.", 
+	"Talita Archibald is an experienced childhood educator with over 22 years teaching performance and drama to children. Talita trained in Music Therapy at the University of Buenos Aires, and at Colorado State University. Originally from Buenos Aires, she moved to Wellington in 2004.", 
+	"Meg has been dancing since the age of 2 and has been trained in a range of styles from Jazz, Tap, Lyrical and even Hip Hop, from this Meg has gone onto compete in solos and troupes, perform at disneyland, choreograph musicals such as Hairspray, Shrek the musical and The Sound of Music.",
+	"Jake Elston has been in acting classes for as long as he can remember. He discovered his passion for musical theatre five years ago when he did his first show (High School Musical) and he hasn't looked back since! He has just completed his three year Bachelor in Applied Arts at Te Auaha Institute.",
+	"Celia Macdonald is a Professional Actress, Singer, Dancer, and a recent Graduate from the National Academy of Singing and Dramatic Art (NASDA) in Christchurch. Celia found her first interest in Music Theatre at Musical Stars Performance Trust at age six. Celia has worked closely with Broadway stars, Andréa Burns, Julia Murney, Joshua Henry, and NZ’s Hayden Tee. She also trained in Stage and Screen with renowned Acting coach, Miranda Harcourt."];
+		}
+	}
+
+	function highlightPerson(i) {
+		var newL = 1;
+		var oldL = 2
+		if (active==1) {
+			newL = 2;
+			oldL = 1;
+			active = 2;
+		}
+		else active = 1;
+
+		document.getElementById("pL"+oldL).style.animationName = "moveBack";
+		document.getElementById("pL"+newL).style.backgroundImage = "url('assets/"+peopleImgs[i]+"')";
+		document.getElementById("pL"+newL).style.animationName = "bringForward";
+		document.getElementById("teacherLayer").style.animationName = "blur";
+		document.getElementById("menu").style.animationName = "blurLess";
+		document.getElementById("bubbleTitle").style.animationName = "moveBack";
+		document.getElementById("bubbleSubTitle").style.animationName = "moveBack";
+
+		document.getElementById("bN"+oldL).style.animationName = "moveBack";
+		document.getElementById("bB"+oldL).style.animationName = "moveBack";
+		document.getElementById("bN"+newL).innerHTML = people[i];
+		document.getElementById("bB"+newL).innerHTML = peopleText[i];
+
+		document.getElementById("bN"+newL).style.animationName = "bringForward";
+		document.getElementById("bB"+newL).style.animationName = "bringForward";
+		
+	}
+
+	function losePerson(i) {
+		document.getElementById("pL1").style.animationName = "moveBack";
+		document.getElementById("pL2").style.animationName = "moveBack";
+		document.getElementById("teacherLayer").style.animationName = "unblur";
+		document.getElementById("menu").style.animationName = "unblurLess";
+
+		document.getElementById("bubbleTitle").style.animationName = "bringForward";
+		document.getElementById("bubbleSubTitle").style.animationName = "bringForward";
+		document.getElementById("bN1").style.animationName = "moveBack";
+		document.getElementById("bB1").style.animationName = "moveBack";
+		document.getElementById("bN2").style.animationName = "moveBack";
+		document.getElementById("bB2").style.animationName = "moveBack";
+	}
+
+
+</script>
+</html>

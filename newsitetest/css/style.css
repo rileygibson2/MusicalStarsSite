@@ -1,0 +1,765 @@
+* {
+	margin: 0;
+	padding: 0;
+	/*EACH ELEMENT MUST CONTROL THEIR
+	OWN OVERFLOW BECAUSE A PAGEWIDE
+	OVERFLOW X GATE STOPS THE MOBILE
+	TOOLBAR SHRINKING SCROLL HACK FROM WORKING*/
+}
+@font-face {
+  font-family: poppinsLite;
+  src: url('../fonts/Poppins/Poppins-ExtraLight.ttf');
+}
+@font-face {
+  font-family: poppinsRegLite;
+  src: url('../fonts/Poppins/Poppins-Light.ttf');
+}
+@font-face {
+  font-family: poppinsReg;
+  src: url('../fonts/Poppins/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: poppinsMed;
+  src: url('../fonts/Poppins/Poppins-Medium.ttf');
+}
+@font-face {
+  font-family: sabrina;
+  src: url('../fonts/Sabrina/Sabrina.ttf');
+}
+@keyframes nullAni {
+	0% {}
+	100% {}
+}
+
+#menu {
+	position: absolute;
+	background-color: transparent;
+	width: 100vw;
+	height: 7vh;
+	margin-top: 0.9vh;
+	transition: background-color 0.2s;
+}
+.aButton {
+	width: 9vw;
+	height: 7vh;
+	z-index: 600;
+	padding-top: 2.2vh;
+	float: right;
+	font-size: 1.2vw;
+	font-family: poppinsReg;
+	font-weight: bold;
+	text-align: center;
+	color: rgb(230, 230, 230);
+	background-color: transparent;
+	text-shadow: none;
+	transition: text-shadow 0.3s, color 0.3s;
+}
+.aButton:hover {
+	text-shadow: -3px 3px 20px white;
+	color: white;
+}
+#lastButton {
+	/*background-color: #54bdee;*/
+	color: white;
+	transition: background-color 0.3s, text-shadow 0.3s, color 0.3s;
+}
+#lastButton:hover {
+	/*background-color: #0092d6;*/
+	text-shadow: -3px 3px 20px white;
+}
+
+/*
+blue #54bdee
+green #b6e339
+red #ce2111
+
+*/
+@keyframes display {
+	0% {opacity: 0; z-index: -1;}
+	100% {opacity: 1; z-index: 1;}
+}
+@keyframes delete {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+#container {
+	position: absolute;
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+	background: radial-gradient(transparent 2%, #54bdee 2%);
+	animation-name: blowUp;
+  	animation-delay: 8.2s;
+  	animation-duration: 0.75s;
+  	animation-fill-mode: forwards;
+}
+@keyframes blowUp {
+	0% {background: radial-gradient(transparent 2%, #54bdee 2%);}
+	10% {background: radial-gradient(transparent 5%, #54bdee 5%);}
+	15% {background: radial-gradient(transparent 10%, #54bdee 10%);}
+	20% {background: radial-gradient(transparent 12%, #54bdee 12%);}
+	25% {background: radial-gradient(transparent 18%, #54bdee 18%);}
+	30% {background: radial-gradient(transparent 30%, #54bdee 30%);}
+	35% {background: radial-gradient(transparent 35%, #54bdee 35%);}
+	40% {background: radial-gradient(transparent 50%, #54bdee 50%);}
+	45% {background: radial-gradient(transparent 55%, #54bdee 55%);}
+	50% {background: radial-gradient(transparent 65%, #54bdee 65%);}
+	55% {background: radial-gradient(transparent 70%, #54bdee 70%);}
+	60% {background: radial-gradient(transparent 75%, #54bdee 75%);}
+	65% {background: radial-gradient(transparent 80%, #54bdee 80%);}
+	70% {background: radial-gradient(transparent 85%, #54bdee 85%);}
+	75% {background: radial-gradient(transparent 90%, #54bdee 90%);}
+	80% {background: radial-gradient(transparent 80%, #54bdee 80%);}
+	85% {background: radial-gradient(transparent 95%, #54bdee 95%);}
+	90% {background: radial-gradient(transparent 98%, #54bdee 98%);}
+	95% {background: radial-gradient(transparent 100%, #54bdee 100%);}
+	99% {background: radial-gradient(transparent 100%, #54bdee 100%); opacity: 1;}
+	100% {background: radial-gradient(transparent 100%, #54bdee 100%); opacity: 0;}
+}
+#correction {
+	position: absolute;
+	width: 10vw;
+	height: 10vh;
+	margin-left: 45vw;
+	margin-top: 45vh;
+	background-color: white;
+	animation-name: openaniCorrection;
+  	animation-delay: 1s;
+  	animation-duration: 8s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+#imagecont {
+	position: absolute;
+	width: 10vw;
+	height: 10vh;
+	background: transparent;
+	margin-left: 45vw;
+	margin-top: 45vh;
+	background-image: url("../assets/shape.png");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+  	animation-name: openani;
+  	animation-delay: 1s;
+  	animation-duration: 8s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+@keyframes openaniCorrection {
+	0% {
+		margin-left: 45vw;
+		margin-top: 45vh;
+		width: 10vw;
+		height: 10vh;
+	}
+	5% {transform: rotate(0deg);}
+	10% {transform: rotate(360deg);}
+	15% {transform: rotate(360deg);}
+	20% {transform: rotate(0deg);}
+	25% {transform: rotate(0deg);}
+	30% {transform: rotate(360deg);}
+	35% {transform: rotate(360deg);}
+	40% {transform: rotate(0deg);}
+	45% {transform: rotate(0deg);}
+	50% {transform: rotate(360deg);}
+	55% {transform: rotate(360deg);}
+	60% {transform: rotate(0deg);}
+	65% {transform: rotate(0deg);}
+	70% {transform: rotate(360deg);}
+	75% {transform: rotate(360deg);}
+	80% {transform: rotate(0deg);}
+	90% {
+		margin-left: 45vw;
+		margin-top: 45vh;
+		width: 10vw;
+		height: 10vh;
+		opacity: 1;
+	}
+	100% {
+		margin-left: -200vw;
+		margin-top: -200vh;
+		width: 500vw;
+		height: 500vh;
+		opacity: 0;
+	}
+}
+@keyframes openani {
+	0% {
+		margin-left: 45vw;
+		margin-top: 45vh;
+		width: 10vw;
+		height: 10vh;
+	}
+	5% {transform: rotate(0deg);}
+	10% {transform: rotate(360deg);}
+	15% {transform: rotate(360deg);}
+	20% {transform: rotate(0deg);}
+	25% {transform: rotate(0deg);}
+	30% {transform: rotate(360deg);}
+	35% {transform: rotate(360deg);}
+	40% {transform: rotate(0deg);}
+	45% {transform: rotate(0deg);}
+	50% {transform: rotate(360deg);}
+	55% {transform: rotate(360deg);}
+	60% {transform: rotate(0deg);}
+	65% {transform: rotate(0deg);}
+	70% {transform: rotate(360deg);}
+	75% {transform: rotate(360deg);}
+	80% {transform: rotate(0deg);}
+	90% {
+		margin-left: 45vw;
+		margin-top: 45vh;
+		width: 10vw;
+		height: 10vh;
+	}
+	100% {
+		margin-left: -200vw;
+		margin-top: -200vh;
+		width: 500vw;
+		height: 500vh;
+	}
+}
+
+#finalcont {
+	position: absolute;
+	overflow: hidden;
+	width: 100vw;
+	height: auto;
+	/*background: linear-gradient(to bottom left, rgba(247,245,247,0) 50%, rgba(0,207,255,1) 100%),
+	linear-gradient(to bottom right, rgba(14,255,76,1) 14%, rgba(247,245,247,0) 50%),
+	linear-gradient(to bottom left, rgba(255,14,14,1) 0%, rgba(247,245,247,0) 20%);*/
+	opacity: 1;
+	z-index: -1;
+	animation-name: display;
+  	animation-delay: 9.2s;
+  	animation-duration: 0s;
+  	animation-fill-mode: forwards;
+}
+.caroselImg {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+  	animation-duration: 2s;
+  	animation-fill-mode: forwards;
+  	background-color: transparent;
+  	opacity: 1;
+  	z-index: -10;
+	/*background: linear-gradient(to left, rgba(241,240,240,0) 100%, rgba(105,105,105,0.5) 100%),
+	linear-gradient(to right, rgba(241,240,240,0) 100%, rgba(155,155,155,0.5) 100%);*/
+}
+@keyframes caroselSlideIn {
+	0% {z-index: -1; margin-left: 100vw; opacity: 1;}
+	100% {z-index: -1; margin-left: 0vw; opacity: 1;}
+}
+@keyframes caroselReset {
+	0% {z-index: -10; margin-left: 0vw; opacity: 0;}
+	100% {z-index: -10; margin-left: 100vw; opacity: 0;}
+}
+#dotsContainer {
+	position: absolute;
+	width: 30vw;
+	height: 5vw;
+	margin-left: 8vw;
+	margin-top: 88vh;
+	background-color: transparent;
+}
+.dot {
+	position: absolute;
+	width: 9px;
+	height: 9px;
+	margin-top: 2vh;
+	background-color: white;
+	border-radius: 50px;
+	animation-duration: 0.3s;
+	opacity: 0.5;
+	animation-fill-mode: forwards;
+}
+@keyframes dotOn{
+	0% {opacity: 0.5; box-shadow: none; margin-top: 2vh; width: 9px; height: 9px;}
+	100% {opacity: 1;  box-shadow: 0px 0px 10px white; margin-top: 1.7vh; width: 14px; height: 14px;}
+}
+@keyframes dotOff{
+	0% {opacity: 1; box-shadow: 0px 0px 10px white; margin-top: 1.7vh; width: 14px; height: 14px;}
+	100% {opacity: 0.5; box-shadow: none; margin-top: 2vh; width: 9px; height: 9px;}
+}
+
+@keyframes expandDot{
+	0% {opacity: 0.5; box-shadow: none; margin-top: 2vh; width: 9px; height: 9px;}
+	100% {opacity: 1;  box-shadow: 0px 0px 10px white; margin-top: 1.5vh; width: 20px; height: 20px;}
+}
+@keyframes shrinkDot{
+	0% {opacity: 1; box-shadow: 0px 0px 10px white; margin-top: 1.5vh; width: 20px; height: 20px;}
+	100% {opacity: 0.5; box-shadow: none; margin-top: 2vh; width: 9px; height: 9px;}
+}
+
+.letters {
+	position: absolute;
+	width: 55vw;
+	margin-left: 0vw;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	font-family: sabrina;
+	font-size: 4.6vw;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	color: white;
+	text-align: center;
+	text-shadow: 1px 1px 30px rgb(250, 250, 250);
+	margin-top: 34.5vh;
+	background-color: transparent;
+}
+.lettersSUB {
+	position: absolute;
+	width: 12vw;
+	font-family: poppinsReg;
+	font-size: 3vw;
+	letter-spacing: 2px;
+	color: white;
+	text-shadow: 3px -3px 10px rgb(250, 250, 250);
+	margin-top: 47vh;
+	text-align: center;
+	background-color: transparent;
+}
+.highlights {
+	position: absolute;
+	height: 10vh;
+	width: 20vw;
+	font-family: poppinsReg;
+	font-size: 3vw;
+	font-weight: bold;
+	background-color: transparent;
+	color: white;
+	text-align: center;
+	text-shadow: 1px 1px 15px rgb(250, 250, 250);
+	margin-top: 47vh;
+	opacity: 0;
+	animation-name: display;
+  	animation-duration: 1s;
+  	animation-fill-mode: forwards;
+}
+#giving {margin-left: 7vw;}
+#children {margin-left: 15vw;}
+#the {margin-left: 29vw;}
+#stage {margin-left: 33vw;}
+
+.circlebox {
+	position: absolute;
+	width: 10vw;
+	height: 16vh;
+	margin-left: 82vw;
+	margin-top: 15vh;
+	background-color: transparent;
+	border-radius: 50px;
+	opacity: 1;
+	animation-name: display;
+  	animation-duration: 0.8s;
+  	animation-delay: 5.5s;
+  	animation-fill-mode: forwards;
+  	transition: width 0.5s, margin-left 0.5s, border-width 0.5s, background-color 0.5s;
+} 
+.circlebox:hover {
+	width: 31vw;
+	margin-left: 61vw;
+	background-color: #2b87ff;
+	/*background: linear-gradient(to right, #2b87ff 20%, #2bcaff 100%);*/
+}
+.circle {
+	width: 11vw;
+	height: 16vh;
+	float: right;
+	background-color: transparent;
+	background-image: url("../assets/juststar.png");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 135%, 100%;
+  	filter: drop-shadow(1px 1px 10px rgb(220, 220, 220));
+  	border-radius: 50px;
+  	opacity: 1;
+  	animation-duration: 0.5s;
+  	animation-fill-mode: forwards;
+}
+.circletext {
+	position: absolute;
+	width: 26vw;
+	margin-top: 2.7vh;
+	background-color: transparent;
+	text-align: center;
+	color: white;
+	font-family: poppinsMed;
+	font-size: 4vw;
+	font-weight: normal;
+	opacity: 0;
+	text-shadow: 0px 0px 20px rgb(200, 200, 200);
+	transition: width 0.5s, opacity 0.5s;
+}
+@keyframes rollin {
+	0% {transform: rotate(0deg); opacity: 1;}
+	40% {opacity: 1;}
+	100% {transform: rotate(360deg); opacity: 1;}
+}
+@keyframes rollout {
+	0% {transform: rotate(360deg); opacity: 1;}
+	20% {opacity: 1;}
+	100% {transform: rotate(0deg); opacity: 1;}
+}
+@keyframes displayh {
+	0% {opacity: 0;}
+	80% {opacity: 0;}
+	100% {opacity: 1;}
+}
+@keyframes undisplayh {
+	0% {opacity: 1;}
+	20% {opacity: 0;}
+	100% {opacity: 0;}
+}
+
+
+
+
+#sectionContainer1 {
+	height: 65vh;
+	width: 100vw;
+	margin-top: 100vh;
+	/*background-color: #326ded;*/
+	background-color: #0077ff;
+}
+#headerText1 {
+	position: absolute;
+	width: 100vw;
+	height: 30vh;
+	margin-top: 0vh;
+	margin-left: 0vw;
+	padding-top: 10vh;
+	background-color: transparent;
+	text-align: center;
+	color: white;
+  	font-size: 12vh;
+  	font-family: poppinsReg;
+  	font-weight: bolder;
+  	text-shadow: -4px 4px 120px rgb(220, 220, 220);
+}
+#bodyText1 {
+	position: absolute;
+	width: 70vw;
+	margin-left: 12.5vw;
+	margin-top: 27vh;
+	background-color: transparent;
+	color: white;
+	text-align: center;
+  	font-size: 2.2vw;
+  	font-family: poppinsRegLite;
+  	font-weight: bolder;
+}
+#bodyText2 {
+	position: absolute;
+	width: 70vw;
+	margin-left: 15vw;
+	margin-top: 40.5vh;
+	background-color: transparent;
+	color: white;
+	text-align: center;
+  	font-size: 1.55vw;
+  	font-family: poppinsLite;
+  	font-weight: bolder;
+}
+strong {
+	font-family: poppinsRegLite;
+	background-color: transparent;
+	font-size: 1.5vw;
+	text-shadow: -1px 1px 11px rgb(200, 200, 200);
+}
+#headerStrong {
+	font-size: 2.3vw;
+}
+
+
+#sectionContainer2 {
+	height: 85vh;
+	width: 100vw;
+	background-color: rgb(250, 250, 255);
+}
+#headerText2 {
+	position: absolute;
+	width: 100vw;
+	height: 40vh;
+	padding-top: 4vh;
+	text-align: center;
+	background-color: transparent;
+	color: #038cfc;
+  	font-size: 14vh;
+  	font-family: poppinsReg;
+  	font-weight: bolder;
+  	/*text-shadow: -4px 4px 100px rgb(190, 190, 190);*/
+}
+.locationBox {
+	position: absolute;
+	width: 25vw;
+	height: 28vh;
+	margin-top: 28vh;
+	background-color: rgb(220, 220, 220);
+	border-top: solid;
+	border-color: #3a93f2;
+	border-width: 12vh;
+	border-radius: 20px;
+	box-shadow: -1px 1px 1px rgb(190, 190, 190),
+	-2px 2px 1px rgb(190, 190, 190),
+	-3px 3px 1px rgb(190, 190, 190),
+	-4px 4px 1px rgb(190, 190, 190),
+	-5px 5px 1px rgb(190, 190, 190),
+	-6px 6px 1px rgb(190, 190, 190),
+	-7px 7px 1px rgb(190, 190, 190),
+	-8px 8px 1px rgb(190, 190, 190),
+	-9px 8px 1px rgb(190, 190, 190),
+	-10px 10px 1px rgb(190, 190, 190);
+}
+.locWidth1 {
+	margin-left: 10vw;
+}
+.locWidth2 {
+	margin-left: 40vw;
+}
+.locWidth3 {
+	margin-left: 70vw;
+}
+.locationHeader {
+	position: absolute;
+	width: 25vw;
+	margin-top: 31vh;
+	background-color: transparent;
+	text-align: center;
+	color: #3b2f2f;
+	color: white;
+  	font-size: 5vh;
+  	font-family: poppinsMed;
+  	font-weight: bolder;
+  	z-index: 1;
+}
+.locationText {
+	overflow: hidden;
+	background-color: transparent;
+	text-align: center;
+	margin-top: 2vh;
+	line-height: 1.3;
+	color: rgb(120, 120, 120);
+  	font-size: 3.3vh;
+  	font-family: poppinsReg;
+}
+.day {
+	font-size: 3.3vh;
+}
+.shadowAdjust {
+	position: absolute;
+	width: 25vw;
+	height: 11.8vh;
+	margin-top: 28.3vh;
+	border-radius: 20px;
+	background-color: transparent;
+	border-left: solid;
+	border-width: 12px;
+	border-color: #79b9fc;
+	z-index: 1;
+}
+#sAdj1 {
+	margin-left: 9.3vw;
+}
+#sAdj2 {
+	margin-left: 39.3vw;
+}
+#sAdj3 {
+	margin-left: 69.3vw;
+}
+#price {
+	position: absolute;
+	width: 100vw;
+	background-color: transparent;
+	text-align: center;
+	margin-top: 74vh;
+	color: #3a93f2;
+  	font-size: 4vh;
+  	font-family: poppinsRegLite;
+}
+
+
+
+
+
+#sectionContainer3 {
+	height: 65vh;
+	width: 100vw;
+	/*background-color: #326ded;*/
+	background-color: #0077ff;
+}
+#sponsorsHeaderText {
+	position: absolute;
+	width: 50vw;
+	height: 65vh;
+	margin-top: 0vh;
+	margin-left: 0vw;
+	padding-top: 17vh;
+	background-color: transparent;
+	text-align: center;
+	color: white;
+  font-size: 10vh;
+  font-family: poppinsReg;
+  font-weight: bolder;
+  text-shadow: -4px 4px 120px rgb(220, 220, 220);
+}
+#divider {
+	position: absolute;
+	width: 3px;
+	height: 45vh;
+	background-color: white;
+	margin-left: 52vw;
+	margin-top: 10vh;
+	border-radius: 30px;
+	opacity: 0.7;
+	box-shadow: 0px 0px 5px rgb(220, 220, 220);
+}
+.sponsors {
+	position: absolute;
+	background-color: transparent;
+	margin-left: 65vw;
+	height: 25vh;
+	width: 25vw;
+	background-size: 85%, 85%;
+	background-position: 0vw 0vh;
+	background-repeat: no-repeat;
+}
+#sponsor1 {
+	margin-top: 8vh;
+	background-image: url("../assets/sponsors/sponsor1.png");
+}
+#sponsor2 {
+	margin-top: 35vh;
+	background-image: url("../assets/sponsors/sponsor2.png");
+}
+
+
+
+.threeContainers {
+	height: 50vh;
+	width: 100vw;
+	background-color: rgb(250, 250, 255);
+	background-repeat: no-repeat;
+	filter: saturate(0%);
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
+#act {
+	background-image: url("../images/act.jpg");
+	background-size: 100%, 100%;
+	background-position: 0vw -10vh;
+}
+#sing {
+	background-image: url("../images/sing.jpg");
+	background-size: 100%, 100%;
+	background-position: 0vw -30vh;
+}
+#dance {
+	background-image: url("../images/joseph.jpg");
+	background-size: 100%, 100%;
+	background-position: 0vw -30vh;
+}
+@keyframes saturate {
+	0% {filter: saturate(0%);}
+	100% {filter: saturate(130%);}
+}
+@keyframes unsaturate {
+	0% {filter: saturate(130%);}
+	100% {filter: saturate(0%);}
+}
+#headerText3 {
+	position: absolute;
+	width: 100vw;
+	padding-top: 14vh;
+	padding-right: 10vh;
+	text-align: right;
+	color: white;
+  	font-size: 14vh;
+  	font-family: poppinsReg;
+  	font-weight: bolder;
+  	box-sizing: border-box;
+}
+#headerText4 {
+	position: absolute;
+	width: 100vw;
+	padding-top: 14vh;
+	padding-left: 10vh;
+	color: white;
+  	font-size: 14vh;
+  	font-family: poppinsReg;
+  	font-weight: bolder;
+  	box-sizing: border-box;
+}
+
+#socialsContainer {
+	height: 12vh;
+	width: 100vw;
+	background-color: rgb(250, 250, 250);
+}
+#copyright {
+	position: absolute;
+	width: 40vw;
+	height: 8vh;
+	margin-top: 1.8vh;
+	margin-left: 2vw;
+	background-color: transparent;
+	color: black;
+	font-family: poppinsLite;
+	font-size: 1.5vw;
+	opacity: 0.4;
+}
+#enrollButton {
+	position: absolute;
+	width: 50vw;
+	height: 8vh;
+	margin-top: 2vh;
+	margin-left: 38vw;
+	padding-top: 0.7vh;
+	background-color: #037dff;
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	font-size: 2.5vw;
+	font-family: poppinsRegLite;
+	filter: saturate(0%);
+	transition: filter 0.3s;
+	box-sizing: border-box;
+}
+#enrollButton:hover {
+	filter: saturate(100%);
+}
+.socialButtons {
+	position: absolute;
+	width: 4vw;
+	height: 7vh;
+	margin-top: 2.5vh;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-size: 100%, 100%;
+	filter: saturate(0%);
+	transition: filter 0.3s;
+}
+.socialButtons:hover {
+	filter: saturate(100%);
+}
+#facebook {
+	margin-left: 89vw;
+	background-image: url("../assets/facebook.png");
+	background-size: 95%, 100%;
+}
+#instagram {
+	margin-left: 94vw;
+	background-image: url("../assets/instagram.png");
+}
+#email {
+	margin-left: 79vw;
+	background-image: url("../assets/email.png");
+}
+
+
+

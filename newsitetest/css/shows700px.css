@@ -1,0 +1,606 @@
+* {
+	margin: 0;
+	padding: 0;
+	background-color: black;
+	overflow: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+@font-face {
+  font-family: poppinsLite;
+  src: url('../fonts/Poppins/Poppins-ExtraLight.ttf');
+}
+@font-face {
+  font-family: poppinsReg;
+  src: url('../fonts/Poppins/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: poppinsMed;
+  src: url('../fonts/Poppins/Poppins-Medium.ttf');
+}
+@font-face {
+  font-family: poppinsBold;
+  src: url('../fonts/Poppins/Poppins-Bold.ttf');
+}
+@keyframes nullAni {
+	0% {}
+	100% {}
+}
+
+#lCurtain {
+	position: absolute;
+	width: 50vw;
+	height: 100vh;
+	margin-left: 0vw;
+	background-image: url("../assets/curtainleft.jpg");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 300%, 100%;
+  	z-index: 500;
+	animation-name: lOpen;
+  	animation-delay: 1s;
+  	animation-duration: 0.5s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+#rCurtain {
+	position: absolute;
+	width: 50vw;
+	height: 100vh;
+	margin-left: 50vw;
+	background-image: url("../assets/curtainright.jpg");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 250%, 250%;
+  	z-index: 500;
+	animation-name: rOpen;
+  	animation-delay: 1s;
+  	animation-duration: 0.5s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+@keyframes lOpen {
+	0% {margin-left: 0vw;}
+	100% {margin-left: -50vw;}
+}
+@keyframes rOpen {
+	0% {margin-left: 50vw;}
+	100% {margin-left: 100vw;}
+}
+
+#menu {
+	position: absolute;
+	background-color: rgb(252, 252, 252);
+	background-color: transparent;
+	width: 100vw;
+	height: 7vh;
+	z-index: 1;
+	transition: height 0.2s;
+}
+#logo {
+	position: absolute;
+	width: 32vw;
+	height: 6.5vh;
+	margin-left: 2.5vw;
+	background-color: transparent;
+	background-image: url("../assets/headerlogoblue.png");
+	background-repeat: no-repeat;
+	background-size: 100%, 100%;
+	background-position: center;
+	filter: none;
+	transition: background-color 0.3s, filter 0.2s;
+}
+#logo:hover {
+	filter: drop-shadow(-2px 2px 10px #54bdee);
+}
+.aButton {
+	width: 14vw;
+	height: 7vh;
+	z-index: 600;
+	padding-top: 2.7vh;
+	float: right;
+	font-size: 1.2vh;
+	font-family: poppinsReg;
+	font-weight: bold;
+	text-align: center;
+	color: rgb(135, 135, 135);
+	background-color: transparent;
+	text-shadow: none;
+	transition: text-shadow 0.3s, color 0.3s;
+}
+.aButton:hover {
+	text-shadow: -3px 3px 20px rgb(80, 80, 80);
+	color: black;
+}
+#lastButton {
+	background-color: transparent;
+	color: rgb(250, 250, 250);
+	background-color: #3098ff;
+	transition: background-color 0.3s, color 0.3s, text-shadow 0.3s, color 0.3s;
+}
+#lastButton:hover {
+	background-color: #004ddb;
+	color: white;
+	text-shadow: -3px 3px 20px white;
+}
+
+
+#container {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	margin-top: 0vh;
+	background: linear-gradient(to bottom right, rgba(255, 255, 255) 50%, #21a6ff 100%);
+	animation-fill-mode: forwards;
+	animation-duration: 0.4s;
+}
+#headText {
+	position: absolute;
+	width: 100vw;
+	height: 40vh;
+	margin-left: 5vw;
+	margin-top: 42vh;
+	padding-left: 2vw;
+	font-family: BrushScriptMT;
+	font-family: Luminari;
+	font-family: Didot;
+	font-family: poppinsMed;
+	font-weight: normal;
+	font-size: 12vh;
+	line-height: 1.1;
+	color: #363636;
+
+  	text-shadow:
+    0 1px #45b4ff ,
+    -1px 0 #45b4ff ,
+    -1px 2px #45b4ff,
+    -2px 1px #45b4ff,
+    -2px 3px #45b4ff,
+    -3px 2px #45b4ff,
+    -3px 4px #45b4ff,
+    -4px 3px #45b4ff,
+    -4px 5px #45b4ff,
+    -5px 4px #45b4ff,
+    -5px 6px #45b4ff,
+    -6px 5px #45b4ff,
+    -6px 7px #45b4ff,
+    -7px 6px #45b4ff,
+    -7px 8px #45b4ff,
+    -8px 7px #45b4ff;
+    /*
+    #00cfff
+	#21a6ff
+    */
+
+	background-color: transparent;
+	z-index: 100;
+}
+#subheadText {
+	position: absolute;
+	width: 90vw;
+	height: 20vh;
+	margin-left: 8vw;
+	margin-top: 73vh;
+	font-family: poppinsReg;
+	font-size: 3vh;
+	color: #363636;
+
+	background-color: transparent;
+	z-index: 100;
+}
+
+#bar {
+	position: absolute;
+	width: 100vw;
+	height: 1.5vh;
+	background-color: white;
+	background-image: url("../assets/pole.png");
+	background-position: center;
+ 	background-repeat: 2;
+  	background-size: 60%, 100%;
+	margin-left: 100vw;
+	margin-top: 12vh;
+	z-index: 0;
+	animation-name: barIn;
+  	animation-delay: 1.5s;
+  	animation-duration: 0.3s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+@keyframes barIn {
+	0% {margin-left: 100vw;}
+	100% {margin-left: 0vw;}
+}
+
+#tShirtContainer {
+	position: absolute;
+	width: 100vw;
+	height: 50vh;
+	overflow: hidden;
+	background-color: transparent;
+}
+.hanger {
+	position: absolute;
+	width: 32vw;
+	height: 25vh;
+	margin-left: 100vw;
+	margin-top: 11vh;
+	background-color: transparent;
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+	z-index: 100;
+  	animation-duration: 0.5s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+  	transition: width 0.3s, height 0.3s, margin-top 0.3s;
+}
+.hanger:hover {
+	width: 34vw;
+	height: 28vh;
+	margin-top: 9vh;
+}
+.hook {
+	position: absolute;
+	width: 17vw;
+	height: 15vh;
+	margin-left: 100vw;
+	margin-top: 10vh;
+	background-color: transparent;
+	background-image: url("../assets/hanger.png");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 180%, 200%;
+	z-index: 90;
+  	animation-duration: 0.5s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+
+@keyframes rockLeft {
+	0% {transform: rotate(-15deg);}
+	40% {transform: rotate(0deg);}
+	60% {transform: rotate(3deg);}
+	80% {transform: rotate(0deg);}
+	100% {transform: rotate(0deg);}
+}
+@keyframes rockRight {
+	0% {transform: rotate(15deg);}
+	40% {transform: rotate(0deg);}
+	60% {transform: rotate(-3deg);}
+	80% {transform: rotate(0deg);}
+	100% {transform: rotate(0deg);}
+}
+
+#lButtonSensor {
+	position: absolute;
+	width: 10vw;
+	height: 93vh;
+	margin-top: 7vh;
+	background-color: transparent;
+	z-index: 500;
+}
+#lButtonSensor:hover {
+	width: 20vw;
+}
+#lButton {
+	position: absolute;
+	width: 60vw;
+	height: 100vh;
+	margin-top: 0vh;
+	margin-left: 0vw; 
+	background: linear-gradient(90deg, #21a6ff 20%, rgba(247,245,247,0) 100%);
+	background-color: transparent;
+	opacity: 0;
+	z-index: -200;
+  	animation-duration: 0.3s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+#lArrow {
+	position: absolute;
+	margin-top: 35vh;
+	margin-left: 1vw;
+	width: 20vw;
+	height: 25vh;
+	background-color: transparent;
+	background-image: url("../assets/leftarrow.png");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+	border-radius: 1vw;
+}
+
+#rButtonSensor {
+	position: absolute;
+	width: 10vw;
+	height: 93vh;
+	margin-top: 7vh;
+	margin-left: 90vw;
+	background-color: transparent;
+	z-index: 500;
+}
+#rButtonSensor:hover {
+	width: 20vw;
+	margin-left: 80vw;
+}
+#rButton {
+	position: absolute;
+	width: 60vw;
+	height: 100vh;
+	margin-top: 0vh;
+	margin-left: 40vw; 
+	background: linear-gradient(90deg, rgba(247,245,247,0) 20%, #21a6ff 85%);
+	opacity: 0;
+	z-index: -200;
+  	animation-duration: 0.3s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+#rArrow {
+	position: absolute;
+	margin-top: 35vh;
+	margin-left: 39vw;
+	width: 20vw;
+	height: 25vh;
+	background-color: transparent;
+	background-image: url("../assets/rightarrow.png");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+	border-radius: 1vw;
+}
+
+@keyframes fadeIn {
+	0% {opacity: 0; z-index: -200;}
+	100% {opacity: 1; z-index: 400;}
+}
+@keyframes fadeOut {
+	0% {opacity: 1; z-index: 400;}
+	100% {opacity: 0; z-index: -200}
+}
+
+
+
+
+
+
+
+
+
+
+/*Appearing Elements*/
+#appearingGradient {
+	position: absolute;
+	height: 50vh;
+	width: 100vw;
+	margin-top: 0vh;
+	/*background: linear-gradient(to bottom, transparent 0%, rgba(255,0,0,1) 100%);*/
+	z-index: -200;
+	opacity: 0;
+	animation-duration: 0.5s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+#appearingContainer {
+	position: absolute;
+	overflow: visible;
+	height: 50vh;
+	width: 100vw;
+	margin-top: 50vh;
+	background-color: red;
+	z-index: -200;
+	opacity: 0;
+	animation-duration: 0.5s;
+  	animation-timing-function: ease-in;
+  	animation-fill-mode: forwards;
+}
+
+@keyframes boxAppear {
+	0% {opacity: 0; z-index: -200;}
+	1% {z-index: 500;}
+	100% {opacity: 1; z-index: 500;}
+}
+@keyframes boxDisappear {
+	0% {opacity: 1; z-index: 500;}
+	99% {z-index: -200;}
+	100% {opacity: 0; z-index: -200;}
+}
+
+#closeTapSensor {
+	position: absolute;
+	background-color: transparent;
+	width: 100vw;
+	height: 30vh;
+	margin-top: -50vh;
+}
+#closeButton {
+	position: absolute;
+	width: 8vw;
+	height: 12vh;
+	margin-left: 85vw;
+	margin-top: -28vh;
+	background-color: transparent;
+	background-image: url("../assets/closebutton.png");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+  	transform: rotate(0deg);
+  	transition: transform, 0.3s;
+}
+#closeButton:hover {
+	transform: rotate(180deg);
+}
+#showTitle {
+	position: relative;
+	width: 100vw;
+	margin-left: 0vw;
+	margin-top: -18vh;
+	background-color: transparent;
+	font-family: poppinsBold;
+	font-size: 13.5vw;
+	text-align: center;
+	color: #e8e8e8;
+	font-weight: bold;
+	box-sizing: border-box;
+}
+#showContent {
+	position: relative;
+	background-color: transparent;
+	width: 90vw;
+	margin-left: 5vw;
+	margin-top: 0vh;
+	font-family: poppinsLite;
+	font-size: 3.5vw;
+	line-height: 1.6;
+	text-align: center;
+	color: #e8e8e8;
+	text-shadow: -2px 2px 20px #bababa;
+}
+#showYear {
+	position: relative;
+	background-color: transparent;
+	width: 100vw;
+	margin-left: 0vw;
+	font-family: poppinsBold;
+	font-size: 8.5vw;
+	text-align: center;
+	color: #e8e8e8;
+	font-weight: bolder;
+}
+#showButton {
+	position: relative;
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+	width: 80vw;
+	height: 8vh;
+	margin-left: 10vw;
+	margin-top: 2vh;
+	background-color: #e8e8e8;;
+	border-radius: 20px;
+	text-align: center;
+	font-family: poppinsMed;
+	font-weight: bold;
+	font-size: 7vw;
+	transition: none;
+}
+#showButton:hover {
+	margin-left: 10vw;
+	transform: none;
+}
+
+#photoSensor {
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	background-color: transparent;
+	display: none;
+	z-index: 900;
+}
+#photo {
+	position: absolute;
+	height: 70vh;
+	width: 100vw;
+	margin-top: 15vh;
+	margin-left: 0vw;
+	background-color: transparent;
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 200%, 100%;
+  	border-radius: 2px;
+  	display: none;
+  	z-index: 1000;
+  	animation-fill-mode: forwards;
+	animation-duration: 0.8s;
+}
+#loading {
+	position: absolute;
+	width: 90vw;
+	height: 20vh;
+	margin-top: 42vh;
+	margin-left: 5vw;
+	background-color: transparent;
+	text-align: center;
+	color: white;
+	font-family: poppinsLite;
+	font-size: 10vw;
+	display: none;
+  	z-index: 1000;
+  	animation-fill-mode: forwards;
+	animation-duration: 0.8s;
+}
+.photoBtn {
+	position: absolute;
+	height: 10vh;
+	width: 15vw;
+	margin-top: 42vh;
+	background-color: transparent;
+	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+  	background-position: center;
+  	transform: scale();
+	display: none;
+	z-index: 1000;
+	animation-fill-mode: forwards;
+	animation-duration: 0.8s;
+	transition: transform 0.3s;
+}
+.photoBtn:hover {
+	transform: scale(1.5, 1.5);
+}
+#photoLButton {
+	margin-left: 0vw;
+	background-image: url("../assets/leftarrow.png");
+}
+#photoRButton {
+	margin-left: 85vw;
+	background-image: url("../assets/rightarrow.png");
+}
+#photoCloseButton {
+	position: absolute;
+	width: 8vw;
+	height: 8vh;
+	margin-left: 91vw;
+	margin-top: 1vh;
+	background-color: transparent;
+	background-image: url("../assets/closebutton.png");
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: 100%, 100%;
+  	transform: none;
+  	display: none;
+  	z-index: 2000;
+  	animation-fill-mode: forwards;
+	animation-duration: 0.8s;
+  	transition: transform, 0.3s;
+}
+#photoCloseButton:hover {
+	transform: scale(1.4, 1.4);
+}
+@keyframes blurMain {
+	0% {opacity: 1;}
+	100% {opacity: 0.15}
+}
+@keyframes unblurMain {
+	0% {opacity: 0.15;}
+	100% {opacity: 1}
+}
+@keyframes photoIn {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+
+
+
+
+
+
+
+
+
+
+

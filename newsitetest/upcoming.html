@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Upcoming | Musical Stars</title>
+	<link rel="stylesheet" type="text/css" href="css/upcoming.css">
+	<link rel="stylesheet" type="text/css" href="css/upcoming700px.css" media='screen and (min-device-width: 0px) and (max-device-width: 980px)'/>
+	<link rel="stylesheet" type="text/css" href="css/upcoming700px.css" media='screen and (min-width: 0px) and (max-width: 980px)'/>
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body onload="controller()">
+
+	<div id="menu">
+			<a href="../index.html"><div id="logo"></div></a>
+			<a href="enrol.php"><div class="aButton" id="lastButton">Enrol</div></a>
+			<a href="teachers.html"><div class="aButton">Team</div></a>
+			<a href="shows.html"><div class="aButton">Shows</div></a>
+			<a href="upcoming.html"><div class="aButton">Upcoming</div></a>
+	</div>
+
+
+	<div id="stormContainer">
+		<!--<div id="frozenLogo"></div>
+		<div id="concealer"></div>-->
+		<div id="countdownTextShadow" class="countdownText">Curtains in 4 months, 2 days and 5 hours</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	
+	class Box {
+		constructor(xMin, xMax, yMin, yMax) {
+			this.xMin = xMin;
+			this.yMin = yMin;
+			this.xMax = xMax;
+			this.yMax = yMax;
+		}
+	}
+	class Point {
+		constructor(x, y) {
+			this.x = x;
+			this.y = y;
+		}
+	}
+
+	//General
+	var stormContainer = document.getElementById("stormContainer");
+	var concealer = document.getElementById("concealer");
+	var screenW = window.screen.width;
+	var screenH = window.screen.height;
+
+	//Storm vars
+	var stormRunning;
+	var storm = new Array();
+	var stormInterval;
+	var particleCount = 400;
+	var snowSpeed = 10;
+	var snowSize = new Point(10, 3);
+
+	/*
+		Sets screen specific variables and controls timings of animation calls, called on load.
+	*/
+	function controller() {
+		//Force mobile to minimise URL and tools with scroll
+		setTimeout(function() {
+			window.scrollTo(0, 1);
+		}, 0);
+
+		//Synchronous Preload
+		var imgHold = new Array();
+		for (var i=0; i<7; i++) {
+			var img = new Image();
+			img.src = "assets/frozenlogo/"+i+".png";
+			imgHold.push(img);
+		}
+
+		//Set screen specific variables
+		if (window.outerWidth<980) { //For smaller screens
+			//Reveal vars
+			revealParticleCount = 300;
+			revealSnowSize = new Point(25, 15);
+			revealSpeed = 20;
+			logoBox = new Box(17, 83, 40, 55);
+			//Storm vars
+			particleCount = 100;
+			snowSize = new Point(18, 8);
+			snowSpeed = 20;
+		}
+
+		//Run
+		setTimeout(function(){setupCountdownReveal();}, 500);
+		setTimeout(function(){runLogoReveal();}, 3000);
+		setTimeout(function(){runStorm();}, 6000);
+	}
+
+	/*
+		Reveal logo one letter at a time
+	*/
+	function runLogoReveal(str) {
+		//Place logos in DOM
+		var objs = new Array();
+		for (var i=0; i<7; i++) {
+			var tempLogo = document.createElement("div");
+			tempLogo.className = "frozenLogo";
+			tempLogo.style.backgroundImage = "url('assets/frozenlogo/"+i+".png')";
+	    	stormContainer.appendChild(tempLogo);
+	    	objs.push(tempLogo);
+	    }
+
+	    //Animate in
+		var logoRevealInterval = setInterval(frame, 200);
+		var count = 0;
+		function frame() {
+			if (count>=objs.length) clearInterval(logoRevealInterval);
+			else {
+				objs[count].style.animationName = "fadeIn";
+				count++;
+			}
+		}
+	}
+
+	/*
+		Run the storm animation
+	*/
+	function runStorm() {
+		if (!stormRunning) {
+			stormRunning = true;
+			//Make snow elements and add to array
+			storm = new Array();
+			constructSnow(particleCount, true, snowSize, new Box(0, 100, 0, 100), false, storm); 
+			//Run storm
+			stormInterval = setInterval(stormFrame, snowSpeed);
+		}
+		else {
+			//Stop animation and reset
+			for (var i=0; i<storm.length; i++) {
+				stormContainer.removeChild(storm[i]);
+			}
+			clearInterval(stormInterval);
+			stormRunning = false;
+		}
+	}
+
+	/*
+		Run a single frame of the main storm animation
+	*/
+	function stormFrame() {
+		for (var i=0; i<storm.length; i++) {
+			var snow = storm[i];
+
+			//If at bottom or side then recycle object with new params
+			if ((snow.sObj.posY>=100||snow.sObj.posX<-2)) {
+				snow.sObj.posY = 0;
+				snow.sObj.posX = (Math.random()*100);
+				if (snow.sObj.display=="none") snow.sObj.display = "block";
+			}
+			else if (snow.sObj.posX>=100) {
+				//If went off right side then respawn on left to fill gaps
+				snow.sObj.posY = (Math.random()*100);
+				snow.sObj.posX = -1;
+				if (snow.sObj.display=="none") snow.sObj.display = "block";
+			}
+			else { //Otherwise move snow
+				snow.setAttribute("style",
+					"margin-left: "+(snow.sObj.posX+snow.sObj.xDir)+"vw; margin-top: "+(snow.sObj.posY+snow.sObj.yDir)+"vh; opacity: "+snow.sObj.opacity+"; height: "+snow.sObj.size+"px; width: "+snow.sObj.size+"px; display: "+snow.sObj.display+";");
+				snow.sObj.posX += snow.sObj.xDir;
+				snow.sObj.posY += snow.sObj.yDir;
+			}
+		}
+	}
+
+	/*
+		Construct the snow used in the storm
+		amount - the amount of particles to create
+		angle - wether or not to provide a slant to the snow's travel
+		size - the upper and lower limits for size
+		box - the spawn box for snow to be created inside
+		displayOverride - to ignore the inital display cutoff that makes the snowfall look more natural, and show all spawned snow instantly
+		storage - the place to store the snow
+	*/
+	function constructSnow(amount, angle, size, box, displayOverride, storage) {
+		for (var i=0; i<amount; i++) {
+			var initXPos = (Math.random()*(box.xMax-box.xMin)+box.xMin);
+			var initYPos = (Math.random()*(box.yMax-box.yMin)+box.yMin);
+			var initXDir =  0;
+			//Cut off to make inital fall in look natural
+			var initDisplay = "none";
+			if (initYPos<=-1||displayOverride) initDisplay = "block";
+			if (angle) initXDir = (Math.random()*(0.05+0.05)-0.05);
+
+			var tempSObj = {
+				size: (Math.random()*(size.x-size.y)+size.y),
+				initX: initXPos,
+				posX: initXPos,
+				posY: initYPos,
+				xDir: initXDir,
+				display: initDisplay,
+				yDir: (Math.random()*(0.3-0.1)+0.1),
+				opacity: (Math.random()*(1-0.2)+0.2),
+			}
+
+			var tempSnow = document.createElement("div");
+			tempSnow.id = "snow";
+    		stormContainer.appendChild(tempSnow);
+    		tempSnow.sObj = tempSObj;
+
+    		storage.push(tempSnow);
+		}
+	}
+
+	/*
+		Calculate distance from date and call subheading animation
+	*/
+	function setupCountdownReveal() {
+	  	var countDownDate = new Date("Sep 15, 2022 00:00:00").getTime();
+	  	var dayConst = 1000*60*60*24;
+	  	var hourConst = 1000*60*60;
+
+		//Get today's date and time, then find the distance between now and the count down date
+		var now = new Date().getTime(); 
+		var distance = countDownDate - now; 
+
+		//Time calculations for days, hours, minutes and seconds
+		var daysFull = Math.floor(distance/dayConst);
+		var months = Math.floor(daysFull/30);
+		var days = Math.floor(daysFull%30);
+		var hours = Math.floor((distance%dayConst)/hourConst);
+
+		runCountdownReveal("Curtains up in "+months+" months, "+days+" days and "+hours+" hours")
+	}
+
+	/*
+		Make subheading enter one character at a time, sexily, while still maintaing form and character spacing.
+	*/
+	function runCountdownReveal(str) {
+		//Make strings
+		var strings = new Array();
+		for (var i=0; i<str.length; i++) {
+			var ch = str.substring(i, i+1);
+				var tempString = "<span style='color: transparent'>";
+				for (var z=0; z<str.length; z++) {
+					if (z==i) tempString += "</span>"+ch+"<span style='color: transparent'>";
+					else tempString += str.substring(z, z+1);
+				}
+				tempString += "</span>";
+				strings.push(tempString);
+		}
+
+		//Place in DOM
+		var objs = new Array();
+		for (var i=0; i<strings.length; i++) {
+			var tempDiv = document.createElement("div");
+			tempDiv.className = "countdownText";
+			tempDiv.innerHTML = strings[i];
+	    	stormContainer.appendChild(tempDiv);
+	    	objs.push(tempDiv);
+	    }
+
+	    //Shuffle objects
+	    objs.sort(() => Math.random() - 0.5);
+
+	    //Animate in
+		var cdRevealInterval = setInterval(frame, 50);
+		var count = 0;
+		function frame() {
+			if (count>=objs.length) {
+				clearInterval(cdRevealInterval);
+				//Set and bring in text shadow
+				var shadow = document.getElementById("countdownTextShadow");
+				shadow.innerHTML = str;
+				shadow.style.animationName = "fadeIn";
+			}
+			else {
+				objs[count].style.animationName = "fadeIn";
+				count++;
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+		#concealer {
+			position: absolute;
+			margin-left: 35vw;
+			margin-top: 40vh;
+			height: 20vh;
+			width: 30vw;
+			background-color: #131821;
+			display: none;
+		}
+
+		//Reveal vars
+		var revealRunning;
+		var stage1 = new Array();
+		var stage2 = new Array();
+		var revealStage;
+		var revealInterval;
+		var revealStage;
+		var revealParticleCount = 600;
+		var revealSpeed = 25;
+		var revealSnowSize = new Point(14, 5);
+		var revealTime;
+		var logoBox = new Box(35, 65, 40, 60);
+		var concealerL;
+	*/
+
+
+
+	/*
+		Set up inital snow needed for logo reveal
+	*/
+	/*function presetReveal() {
+		stage1 = new Array();
+		//Make snow
+		constructSnow(revealParticleCount, true, revealSnowSize, logoBox, true, stage1);
+		
+		//Sort array
+		stage1.sort(function(a, b) {
+			if (a.sObj.posX<b.sObj.posX) return 1;
+			else if (a.sObj.posX>b.sObj.posX) return -1;
+			else return 0;
+		});
+		//Assign spicy directions
+		for (var i=0; i<stage1.length; i++) {
+			stage1[i].sObj.xDir = (Math.random()*(0.5-0.1)+0.1);
+			stage1[i].sObj.yDir = (Math.random()*(0.2+0.2)-0.2);
+		}
+
+		//Move/Update snow
+		for (var i=0; i<stage1.length; i++) {
+			var snow = stage1[i];
+			snow.setAttribute("style",
+				"margin-left: "+(snow.sObj.posX)+"vw; margin-top: "+(snow.sObj.posY)+"vh; opacity: "+snow.sObj.opacity+"; height: "+snow.sObj.size+"px; width: "+snow.sObj.size+"px; display: "+snow.sObj.display+";");
+		}
+	}*/
+
+	/*
+		Initiate snowfall in a specific region that gets stopped at a certain point, then blown away
+	*/
+	/*function runReveal() {
+		if (!revealRunning) {
+			revealRunning = true;
+			stage2 = new Array();
+			concealerL = logoBox.xMin;
+			revealTime = 0;
+
+			//Run reveal stage 1
+			revealInterval = setInterval(revealFrame, revealSpeed);
+		}
+	}*/
+
+	/*
+		Reveal logo by blowing each concealing particle away one at a time based on new sorted array, revealing logo underneath
+	*/
+	/*function revealFrame() {
+		revealTime++;
+
+		//Add snow to movement array
+		if (stage1.length>0) for (var i=0; i<10; i++) stage2.push(stage1.pop());
+		//Start fading out
+		if (revealTime>80&&stage1.length==0) {
+			for (var i=0; i<stage2.length; i++) stage2[i].sObj.opacity -= 0.01; 
+		}
+		//Kill
+		if (revealTime>180) {
+			clearInterval(revealInterval);
+			for (var i=0; i<stage2.length; i++) stormContainer.removeChild(stage2[i]);
+			revealRunning = false;
+		}
+
+		//Move concealer
+		if (concealer!=null) {
+			concealerL+=0.5;
+			concealer.setAttribute("style", "margin-left: "+concealerL+"vw; width: "+((logoBox.xMax-logoBox.xMin)-(concealerL-logoBox.xMin))+"vw; opacity: 1;");
+			if (concealerL>=logoBox.xMax) {
+				concealer.setAttribute("style", "opacity: 0; display: none");
+				concealer = null;
+			}
+		}
+		
+		//Move/Update snow
+		for (var i=0; i<stage2.length; i++) {
+			var snow = stage2[i];
+			snow.setAttribute("style",
+					"margin-left: "+(snow.sObj.posX+snow.sObj.xDir)+"vw; margin-top: "+(snow.sObj.posY+snow.sObj.yDir)+"vh; opacity: "+snow.sObj.opacity+"; height: "+snow.sObj.size+"px; width: "+snow.sObj.size+"px;");
+			snow.sObj.posX += snow.sObj.xDir;
+			snow.sObj.posY += snow.sObj.yDir;
+		}
+		
+	}*/
+
+</script>
+</html>

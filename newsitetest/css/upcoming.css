@@ -1,0 +1,137 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+  font-family: poppinsLite;
+  src: url('../fonts/Poppins/Poppins-ExtraLight.ttf');
+}
+@font-face {
+  font-family: poppinsReg;
+  src: url('../fonts/Poppins/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: poppinsMed;
+  src: url('../fonts/Poppins/Poppins-Medium.ttf');
+}
+@font-face {
+  font-family: poppinsBold;
+  src: url('../fonts/Poppins/Poppins-Bold.ttf');
+}
+
+#menu {
+	position: absolute;
+	background-color: transparent;
+	width: 100vw;
+	height: 7vh;
+	transition: background-color 0.2s;
+	z-index: 200;
+}
+/*#menu:hover {
+	background-color: rgb(150, 150, 150, 0.3);
+}*/
+#logo {
+	position: absolute;
+	width: 22vw;
+	height: 7vh;
+	margin-left: 1vw;
+	margin-top: 0vh;
+	background-color: transparent;
+	background-image: url("../assets/headerlogowhite.png");
+	background-repeat: no-repeat;
+	background-size: 60%, 100%;
+	background-position: center;
+	filter: none;
+	transition: background-color 0.3s, filter 0.2s;
+}
+#logo:hover {
+	filter: drop-shadow(-2px 2px 10px white);
+}
+.aButton {
+	width: 9vw;
+	height: 7vh;
+	z-index: 600;
+	padding-top: 2.2vh;
+	float: right;
+	font-size: 1.2vw;
+	font-family: poppinsReg;
+	font-weight: bold;
+	text-align: center;
+	color: rgb(230, 230, 230);
+	background-color: transparent;
+	text-shadow: none;
+	transition: text-shadow 0.3s, color 0.3s;
+}
+.aButton:hover {
+	text-shadow: -3px 3px 20px white;
+	color: white;
+}
+#lastButton {
+	color: white;
+	transition: background-color 0.3s, text-shadow 0.3s, color 0.3s;
+}
+#lastButton:hover {
+	background-color: #0092d6;
+	text-shadow: -3px 3px 20px white;
+}
+
+#stormContainer {
+	position: absolute;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
+	background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 80%);
+}
+#snow {
+	position: absolute;
+	background-color: white;
+	border-radius: 50px;
+	/*box-shadow: 0px 0px 20px 3px white;*/
+	/*box-shadow: 0px 0px 5px 1px white;*/
+}
+#star {
+	position: absolute;
+	border-radius: 0px;
+	box-shadow: 0px 0px 20px 1px white;
+}
+
+.frozenLogo {
+	position: absolute;
+	margin-left: 35vw;
+	margin-top: 40vh;
+	height: 20vh;
+	width: 30vw;
+	background-color: transparent;
+	/*background-image: url("../assets/frozenlogo.png");*/
+	background-size: 100%;
+	background-repeat: no-repeat;
+	opacity: 0;
+	animation-duration: 3s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in;
+}
+.countdownText {
+	position: absolute;
+	width: 100vw;
+	margin-top: 65vh;
+	text-align: center;
+	background-color: transparent;
+	color: white;
+	font-family: poppinsLite;
+	font-size: 2.2vw;
+	opacity: 0;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+}
+#countdownTextShadow {
+	text-shadow: 0px 0px 10px #45b4ff;
+	color: transparent;
+	opacity: 0;
+}
+
+@keyframes fadeIn{
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}

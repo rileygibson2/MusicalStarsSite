@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Musical Stars | Giving Children The Stage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="newsitetest/css/style.css">
+	<link rel="stylesheet" type="text/css" href="newsitetest/css/style700px.css" media='screen and (min-device-width: 0px) and (max-device-width: 980px)'/>
+	<link rel="stylesheet" type="text/css" href="newsitetest/css/style700px.css" media='screen and (min-width: 0px) and (max-width: 980px)'/>
+	<link rel="icon" type="image/png" href="newsitetest/assets/favicon.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body onload="aniGateControllerCarosel()">
+	<img src="newsitetest/images/simba.jpg" width="1" height="1" style="display: none"></img>
+	<img src="newsitetest/images/mobile/simba.jpg" width="1" height="1" style="display: none"></img>
+	
+	<div id="container">
+		<div id="correction"></div>
+		<div id="imagecont"></div>
+	</div>
+
+	<div id="finalcont">
+		<div class="caroselImg" id="caroselImg1"></div>
+		<div class="caroselImg" id="caroselImg2"></div>
+
+		<div id="menu">
+			<a href="newsitetest/enrol.php"><div class="aButton" id="lastButton">Enrol</div></a>
+			<a href="newsitetest/teachers.html"><div class="aButton">Team</div></a>
+			<a href="newsitetest/shows.html"><div class="aButton">Shows</div></a>
+			<a href="newsitetest/upcoming.html"><div class="aButton">Upcoming</div></a>
+		</div>
+
+		<p class="letters">musical stars</p>
+		<p class="lettersSUB" id="giving">giving</p>
+		<p class="highlights" id="children">children</p>
+		<p class="lettersSUB" id="the">the</p>
+		<p class="highlights" id="stage">stage</p>
+
+		<div id="dotsContainer"></div>
+
+		<a href="#act">
+			<div class="circlebox" style="margin-top: 18vh;" onmouseover="addText(1)" onmouseout="looseText(1)">
+				<div class="circle" id="circle1"></div>
+				<p class="circletext" id="text1">Act</p>
+			</div>
+		</a>
+		
+		<a href="#sing">
+			<div class="circlebox" style="margin-top: 43vh;" onmouseover="addText(2)" onmouseout="looseText(2)">
+				<div class="circle" id="circle2"></div>
+				<p class="circletext" id="text2">Sing</p>
+			</div>
+		</a>
+
+		<a href="#dance">
+			<div class="circlebox" style="margin-top: 68vh" onmouseover="addText(3)" onmouseout="looseText(3)">
+				<div class="circle" id="circle3"></div>
+				<p class="circletext" id="text3">Dance</p>
+			</div>
+		</a>
+
+
+		<div id="sectionContainer1">
+			<p id="headerText1">Musical Stars is</p>
+			<p id="bodyText1">an after school musical theatre class for children aged 5-16 years, run by <strong id="headerStrong">professionals</strong> working in the industry.</p>
+			<p id="bodyText2">The Musical Stars experience not only ignites a passion for Performing Arts but also gives children an opportunity to be <strong>challenged</strong> and to <strong>succeed</strong>.  It encourages the formation of many important life skills and supports the NZ School Arts Curriculum.</p>
+		</div>
+
+		<div id="sectionContainer2">
+			<p id="headerText2">Timetable</p>
+			<div class="shadowAdjust" id="sAdj1"></div>
+			<p class="locationHeader locWidth1">Karori</p>
+			<div class="locationBox locWidth1">
+				<p class="locationText">
+					<strong class="day">Wednesday</strong></br>3:30pm - 5:30pm</br></br>Karori Baptist Church</br> Marsden Village
+				</p>
+			</div>
+			<div class="shadowAdjust" id="sAdj2"></div>
+			<p class="locationHeader locWidth2">Lower Hutt</p>
+			<div class="locationBox locWidth2">
+				<p class="locationText">
+					<strong class="day">Thursday</strong></br>3:30pm - 5:30pm</br></br>St Marks Church</br> 58 Woburn Rd
+				</p>
+			</div>
+			<div class="shadowAdjust" id="sAdj3"></div>
+			<p class="locationHeader locWidth3">Wellington</p>
+			<div class="locationBox locWidth3">
+				<p class="locationText">
+					<strong class="day">Monday</strong></br>3:40pm - 5:40pm</br></br>The Polish Club</br> 257 Riddiford St
+				</p>
+			</div>
+			<div id="price">$235 per term</div>
+		</div>
+
+		<div id="sectionContainer3">
+			<p id="sponsorsHeaderText">Our Fantastic Sponsors</p>
+			<div id="divider"></div>
+			<div class="sponsors" id="sponsor1"></div>
+			<div class="sponsors" id="sponsor2"></div>
+		</div>
+
+		<div class="threeContainers" id="act" onmouseover="saturate('act')" onmouseout="unsaturate('act')">
+			<p id="headerText3">Act</p>
+		</div>
+		<div class="threeContainers" id="sing" onmouseover="saturate('sing')" onmouseout="unsaturate('sing')">
+			<p id="headerText4">Sing</p>
+		</div>
+		<div class="threeContainers" id="dance" onmouseover="saturate('dance')" onmouseout="unsaturate('dance')">
+			<p id="headerText3">Dance</p>
+		</div>
+
+		<div id="socialsContainer">
+			<div id="copyright">&#169 All images, content and logos</br>Copyright Musical Stars Production Trust 2022</div>
+			<a href="newsitetest/enrol.php"><div id="enrollButton">Enroll</div></a>
+			<a href="https://www.facebook.com/groups/160524920090" target="_blank"><div class="socialButtons" id="facebook"></div></a>
+			<a href="https://www.instagram.com/musicalstarsperformancetrust/" target="_blank"><div class="socialButtons" id="instagram"></div></a>
+			<!--<a href="mailto:enroll@musicalstars.co.nz" target="_blank"><div class="socialButtons" id="email"></div></a>-->
+		</div>
+	</div>
+
+		<!-- #0039b3  #2159d1 #326ded-->
+</body>
+<script type="text/javascript">
+
+	//var aniGate = true;
+
+	function aniGateControllerCarosel() {
+		//Force mobile to minimise URL and tools with scroll
+		setTimeout(function() {
+			//window.scrollTo(0, 1);
+    		var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    		if (scrollPos < 1) {
+      			window.scrollTo(0,1);
+    		}
+		}, 0);
+
+		//Resize images based on window size
+		var w = window.outerWidth;
+		if (w<980) { 
+			dotAdj = 7;  
+			mobile = "mobile/";
+			//Custom mobile positioning for each image
+		  	imgExpand = [190, 200, 200, 150, 175, 150, 190, 190, 180, 190];
+		  	imgPosX = [-75, -50, -45, -50, -38, -50, 0, -65, -45, -60];
+		  	imgPosY = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+		  	//Setup background
+			document.getElementById("caroselImg1").setAttribute("style", "background-image: url('newsitetest/images/mobile/simba.jpg'); background-size: 190%, 100%; background-position: -75vw 0vh;");
+			document.getElementById("caroselImg2").setAttribute("style", "margin-left: 100vw;");
+			//Set up inner
+			document.getElementById("giving").innerHTML = "giving children the stage"
+		}
+		else {
+			dotAdj = 2;
+			//Positioning for each image on carosel
+		  	imgExpand = [120, 120, 125, 120, 100, 120, 100, 120, 130, 100];
+		  	imgPosX = [-10, 0, 0, -10, 0, 0, 0, -10, 0, 0];
+		  	imgPosY = [-10, -30, -10, -10, 0, -27.5, 0, -10, -5, 0];
+		  	//Setup background
+			document.getElementById("caroselImg1").setAttribute("style", "background-image: url('newsitetest/images/simba.jpg'); background-size: 120%, 100%; background-position: -10vw -10vh;");
+			document.getElementById("caroselImg2").setAttribute("style", "margin-left: 100vw;");
+		}
+
+		//Setup dots
+		for (var i = 0; i < images.length; i++) {
+			var dot = document.createElement("div");
+  			dot.className = "dot";
+  			dot.id = "d"+i;
+  			dot.style.marginLeft = (i*dotAdj+2)+"vw";
+  			document.getElementById("dotsContainer").appendChild(dot);
+		}
+		document.getElementById("d0").style.animationName = "dotOn";
+		
+		//Animation gate
+		//if (document.cookie=="1=") {
+		if (true) {
+			document.getElementById("container").style.opacity = "0";
+			document.getElementById("finalcont").style.opacity = "1";
+			document.getElementById("finalcont").style.zIndex = "1";
+			setTimeout(function(){carosel()}, sleep);
+		}
+		else {
+			document.cookie="1";
+			setTimeout(function(){carosel()}, sleep+5000);
+		}
+
+		//Synchronous Preload
+		for (var z = 0; z < images.length; z++) {
+			var img = new Image();
+			img.src = "newsitetest/images/"+mobile+images[z]+".jpg";
+		}
+	}
+
+	var sleep = 5000;
+	var images = ["simba", "joseph", "act", "clara", "annie", "cat", "pots", "rafiki", "lion", "islandbay"];
+	var imgExpand;
+	var imgPosX;
+	var imgPosY;
+	var dotAdj;
+	var mobile = "";
+	var active = 1;
+	var i = 0;
+
+	function carosel() {
+		var newL = 2;
+		var oldL = 1;
+		if (active==2) {
+			newL = 1;
+			oldL = 2;
+			active = 1;
+		}
+		else active = 2;
+
+		//Run animations
+		document.getElementById("caroselImg"+newL).setAttribute("style", "background-image: url('newsitetest/images/"+mobile+images[i+1]+".jpg'); background-size: "+imgExpand[i+1]+"%, 100%; background-position: "+imgPosX[i+1]+"vw "+imgPosY[i+1]+"vh; animation-delay: 0s; animation-name: caroselSlideIn;");
+		document.getElementById("caroselImg"+oldL).setAttribute("style", "background-image: url('newsitetest/images/"+mobile+images[i]+".jpg'); background-size: "+imgExpand[i]+"%, 100%; background-position: "+imgPosX[i]+"vw "+imgPosY[i]+"vh; animation-delay: 3s; animation-name: caroselReset;");
+
+		//Dot off
+		document.getElementById("d"+i).setAttribute("style", "animation-name: dotOff; margin-left: "+(i*dotAdj+2)+"vw;");
+
+		//Adjust index + reset first image
+		if (i==images.length-1) {
+			document.getElementById("d"+i).setAttribute("style", "animation-name: dotOff; margin-left: "+(i*dotAdj+2)+"vw;");
+			document.getElementById("caroselImg"+newL).setAttribute("style", "background-image: url('newsitetest/images/"+mobile+"simba.jpg'); background-size: "+imgExpand[0]+"%, 100%; background-position: "+imgPosX[0]+"vw "+imgPosY[0]+"vh; animation-delay: 0s; animation-name: caroselSlideIn;");
+			i = 0;
+		}
+		else i++;
+
+		//Next dot on
+		document.getElementById("d"+i).setAttribute("style", "animation-name: dotOn; margin-left: "+(i*dotAdj+1.8)+"vw;");
+		setTimeout(function(){carosel()}, sleep);	
+	}
+
+	function addText(obj) {
+		document.getElementById("circle"+obj).style.animationName= "rollin";
+		document.getElementById("circle"+obj).style.filter= "none";
+		document.getElementById("text"+obj).style.opacity= "1";
+
+	}
+	function looseText(obj) {
+		document.getElementById("text"+obj).style.opacity= "0";
+		document.getElementById("circle"+obj).style.filter= "drop-shadow(1px 1px 10px rgb(200, 200, 200))";
+		document.getElementById("circle"+obj).style.animationName= "rollout";
+	}
+
+	function saturate(obj) {
+		document.getElementById(obj).style.animationName = "saturate";
+	}
+	function unsaturate(obj) {
+		document.getElementById(obj).style.animationName = "unsaturate";
+	}
+
+	/*$( window ).ready(function(){
+   			alert("ready");
+	});*/
+</script>
+</html>
